@@ -1,0 +1,5 @@
+# Fichiers de configuration de l'IDE JetBrains PhpStorm
+.idea
+
+# Fichiers média personnels (photo, etc.) non versionnés
+public/img

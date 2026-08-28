@@ -1,0 +1,364 @@
+/* ============================================================
+   CV — Sergio Núñez Meneses
+   Style minimaliste A4, noir/blanc
+   ============================================================ */
+
+/* === 1. Variables =========================================== */
+:root {
+  /* Colors */
+  --color-page-bg:        #d8d8d8;
+  --color-cv-bg:          #ffffff;
+  --color-text:           #1a1a1a;
+  --color-text-secondary: #444444;
+  --color-text-meta:      #666666;
+  --color-border:         #cccccc;
+  --color-section-line:   #1a1a1a;
+  --color-link:           #1a1a1a;
+  --color-link-hover:     #555555;
+
+  /* Typography */
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body:    'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  /* Font sizes */
+  --fs-name:     1.3rem;
+  --fs-section:  0.78rem;
+  --fs-body:     0.75rem;
+  --fs-small:    0.68rem;
+
+  /* Spacing */
+  --sp-xs:  0.2rem;
+  --sp-sm:  0.4rem;
+  --sp-md:  0.75rem;
+  --sp-lg:  1.1rem;
+  --sp-xl:  1.6rem;
+
+  /* Page */
+  --page-width:    210mm;
+  --page-height:   297mm;
+  --page-pad-v:    14mm;
+  --page-pad-h:    18mm;
+
+  /* Photo */
+  --photo-size: 80px;
+}
+
+/* === 2. Reset & base ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-page-bg);
+  font-family:      var(--font-body);
+  color:            var(--color-text);
+  padding:          2rem;
+  display:          flex;
+  justify-content:  center;
+  min-height:       100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color:           var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color:           var(--color-link-hover);
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+}
+
+/* === 3. CV page container =================================== */
+.cv {
+  background-color: var(--color-cv-bg);
+  width:            var(--page-width);
+  min-height:       var(--page-height);
+  padding:          var(--page-pad-v) var(--page-pad-h);
+  font-size:        var(--fs-body);
+  line-height:      1.45;
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--sp-lg);
+}
+
+/* === 4. Shared section title ================================ */
+.cv__section-title {
+  font-family:     var(--font-heading);
+  font-size:       var(--fs-section);
+  font-weight:     bold;
+  text-transform:  uppercase;
+  letter-spacing:  0.05em;
+  border-bottom:   1px solid var(--color-section-line);
+  padding-bottom:  var(--sp-xs);
+  margin-bottom:   var(--sp-md);
+  color:           var(--color-text);
+}
+
+/* === 5. Header ============================================== */
+.cv__header {
+  display:               grid;
+  grid-template-columns: 3fr 2fr;
+  gap:                   var(--sp-xl);
+  align-items:           start;
+}
+
+/* Left column: photo + identity */
+.cv__personal {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-md);
+}
+
+.cv__photo-wrapper {
+  width:  var(--photo-size);
+  height: var(--photo-size);
+  overflow: hidden;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cv__photo {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  display:    block;
+}
+
+.cv__name {
+  font-family:   var(--font-heading);
+  font-size:     var(--fs-name);
+  font-weight:   bold;
+  color:         var(--color-text);
+  margin-bottom: var(--sp-xs);
+}
+
+.cv__profession {
+  font-size:     var(--fs-body);
+  color:         var(--color-text-secondary);
+  margin-bottom: var(--sp-sm);
+}
+
+.cv__contact {
+  display:     flex;
+  flex-wrap:   wrap;
+  align-items: center;
+  gap:         var(--sp-xs);
+  font-size:   var(--fs-small);
+  color:       var(--color-text-meta);
+}
+
+.cv__contact-separator {
+  color: var(--color-border);
+}
+
+/* Right column: skills */
+.cv__skills {
+  display:        flex;
+  flex-direction: column;
+}
+
+.skills__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-sm);
+  margin-bottom:  var(--sp-sm);
+}
+
+.skills__item {
+  font-size:   var(--fs-small);
+  line-height: 1.4;
+}
+
+.skills__category {
+  font-weight: bold;
+}
+
+.skills__level {
+  font-size:      0.6rem;
+  vertical-align: super;
+  line-height:    1;
+}
+
+.skills__level--notions  { color: var(--color-text-secondary); }
+.skills__level--learning { color: var(--color-text-secondary); }
+
+.skills__legend {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-meta);
+  border-top:    1px solid var(--color-border);
+  padding-top:   var(--sp-xs);
+  margin-top:    var(--sp-xs);
+}
+
+/* === 6. Education (2-col) =================================== */
+.cv__education {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--sp-xl);
+  align-items:           start;
+}
+
+.degrees__list,
+.training__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-md);
+}
+
+/* === 7. Shared item styles ================================== */
+.item__title {
+  font-weight:   bold;
+  font-size:     var(--fs-body);
+  margin-bottom: var(--sp-xs);
+}
+
+.item__meta {
+  font-weight: normal;
+  font-size:   var(--fs-small);
+  color:       var(--color-text-meta);
+}
+
+.item__subtitle {
+  font-style:    italic;
+  font-size:     var(--fs-small);
+  color:         var(--color-text-secondary);
+  margin-bottom: var(--sp-xs);
+}
+
+.item__description {
+  font-style:  italic;
+  font-size:   var(--fs-small);
+  color:       var(--color-text-secondary);
+  margin-top:  var(--sp-xs);
+}
+
+.item__tasks {
+  list-style:  disc;
+  margin-left: var(--sp-lg);
+  margin-top:  var(--sp-xs);
+}
+
+.item__tasks li {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-secondary);
+  margin-bottom: var(--sp-xs);
+  line-height:   1.4;
+}
+
+/* === 8. Jobs ================================================ */
+.jobs__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-md);
+}
+
+/* === 9. Internships ========================================= */
+.internships__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-md);
+}
+
+/* === 10. Awards ============================================= */
+.cv__awards {
+  display:        flex;
+  flex-direction: column;
+}
+
+.awards__group {
+  margin-bottom: var(--sp-md);
+}
+
+.awards__group:last-child {
+  margin-bottom: 0;
+}
+
+.awards__group-title {
+  font-size:      var(--fs-small);
+  font-weight:    bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color:          var(--color-text-secondary);
+  margin-bottom:  var(--sp-xs);
+}
+
+.awards__list {
+  list-style:  disc;
+  margin-left: var(--sp-lg);
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--sp-xs);
+}
+
+.awards__item {
+  font-size:   var(--fs-small);
+  color:       var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.awards__item-title {
+  font-size: var(--fs-small);
+  color:     var(--color-text);
+}
+
+.awards__sublist {
+  list-style:  circle;
+  margin-left: var(--sp-lg);
+  margin-top:  var(--sp-xs);
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--sp-xs);
+}
+
+.awards__sublist li {
+  font-size:   var(--fs-small);
+  color:       var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.awards__conference {
+  font-size:   var(--fs-small);
+  color:       var(--color-text);
+  line-height: 1.4;
+}
+
+/* === 11. Print ============================================== */
+@media print {
+  body {
+    background: white;
+    padding:    0;
+  }
+
+  .cv {
+    width:      100%;
+    min-height: auto;
+    padding:    0;
+    gap:        8mm;
+  }
+
+  @page {
+    size:   A4;
+    margin: 14mm 18mm;
+  }
+}
+
+/* === 12. Mobile (à définir selon structure future) ==========
+@img (max-width: 600px) {
+  .cv__header    { grid-template-columns: 1fr; }
+  .cv__education { grid-template-columns: 1fr; }
+}
+============================================================= */
