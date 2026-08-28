@@ -25,7 +25,6 @@
   --fs-section:  0.78rem;
   --fs-body:     0.75rem;
   --fs-small:    0.68rem;
-  --fs-xs:       0.48rem;
 
   /* Spacing */
   --sp-xs:  0.2rem;
@@ -112,10 +111,10 @@ address {
 /* === 5. Header ============================================== */
 .cv__header {
   display:               grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 0.8fr;
   gap:                   var(--sp-xl);
   align-items:           start;
-  margin-bottom :        var(--sp-md);
+  margin-bottom:         var(--sp-md);
 }
 
 /* Left column: photo + identity */
@@ -167,6 +166,7 @@ address {
   display:     inline-flex;
   align-items: center;
   gap:         0.25em;
+  padding:     0.1rem;
 }
 
 .cv__contact-separator {
@@ -174,7 +174,7 @@ address {
 }
 
 .cv__contact-icon {
-  width:          2rem;
+  width:          1rem;
   height:         1rem;
   vertical-align: middle;
   flex-shrink:    0;
@@ -221,10 +221,14 @@ address {
   margin-top:    var(--sp-lg);
 }
 
+.skills__legend .skills__level {
+  margin-right: -0.1rem;
+}
+
 /* === 6. Education (2-col) =================================== */
 .cv__education {
   display:               grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.7fr 1fr;
   gap:                   var(--sp-xl);
   align-items:           start;
 }
@@ -236,11 +240,16 @@ address {
   gap:            var(--sp-md);
 }
 
+.degrees__list .item__subtitle,
+.training__list .item__subtitle {
+  margin-left: var(--sp-sm);
+}
+
 /* === 7. Shared item styles ================================== */
 .item__title {
   font-weight:   bold;
   font-size:     var(--fs-body);
-  margin-bottom: var(--sp-xs);
+  /*margin-bottom: var(--sp-xs);*/ /* TODO: garder jusqu'à ce que le type de police ait été défini */
 }
 
 .item__meta {
@@ -253,6 +262,7 @@ address {
   font-style:    italic;
   font-size:     var(--fs-small);
   color:         var(--color-text-secondary);
+  text-align:    justify;
   margin-bottom: var(--sp-xs);
 }
 
