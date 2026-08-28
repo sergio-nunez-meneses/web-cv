@@ -5,7 +5,7 @@
 
 /* === 1. Variables =========================================== */
 :root {
-  /* Colors */
+  /* Couleurs */
   --color-page-bg:        #d8d8d8;
   --color-cv-bg:          #ffffff;
   --color-text:           #1a1a1a;
@@ -16,17 +16,17 @@
   --color-link:           #1a1a1a;
   --color-link-hover:     #555555;
 
-  /* Typography */
+  /* Typographie */
   --font-heading: Georgia, 'Times New Roman', serif;
   --font-body:    'Helvetica Neue', Arial, Helvetica, sans-serif;
 
-  /* Font sizes */
+  /* Tailles de police */
   --fs-name:     1.3rem;
   --fs-section:  0.78rem;
   --fs-body:     0.75rem;
   --fs-small:    0.68rem;
 
-  /* Spacing */
+  /* Espacement */
   --sp-xs:  0.2rem;
   --sp-sm:  0.4rem;
   --sp-md:  0.75rem;
@@ -82,7 +82,7 @@ address {
   font-style: normal;
 }
 
-/* === 3. CV page container =================================== */
+/* === 3. Conteneur page CV =================================== */
 .cv {
   background-color: var(--color-cv-bg);
   width:            var(--page-width);
@@ -95,7 +95,7 @@ address {
   gap:              var(--sp-lg);
 }
 
-/* === 4. Shared section title ================================ */
+/* === 4. Titre de section partagé ================================ */
 .cv__section-title {
   font-family:     var(--font-heading);
   font-size:       var(--fs-section);
@@ -108,7 +108,7 @@ address {
   color:           var(--color-text);
 }
 
-/* === 5. Header ============================================== */
+/* === 5. En-tête ============================================== */
 .cv__header {
   display:               grid;
   grid-template-columns: 1fr 0.8fr;
@@ -117,7 +117,7 @@ address {
   margin-bottom:         var(--sp-md);
 }
 
-/* Left column: photo + identity */
+/* Colonne gauche : photo + identité */
 .cv__personal {
   display:        flex;
   flex-direction: column;
@@ -180,7 +180,7 @@ address {
   flex-shrink:    0;
 }
 
-/* Right column: skills */
+/* Colonne droite : compétences */
 .cv__skills {
   display:        flex;
   flex-direction: column;
@@ -225,7 +225,7 @@ address {
   margin-right: -0.1rem;
 }
 
-/* === 6. Education (2-col) =================================== */
+/* === 6. Parcours universitaire (2-col) =================================== */
 .cv__education {
   display:               grid;
   grid-template-columns: 0.7fr 1fr;
@@ -242,10 +242,10 @@ address {
 
 .degrees__list .item__subtitle,
 .training__list .item__subtitle {
-  margin-left: var(--sp-sm);
+  margin-left: var(--sp-md);
 }
 
-/* === 7. Shared item styles ================================== */
+/* === 7. Styles partagés d'éléments ================================== */
 .item__title {
   font-weight:   bold;
   font-size:     var(--fs-body);
@@ -274,33 +274,38 @@ address {
 }
 
 .item__tasks {
-  list-style:  disc;
-  margin-left: var(--sp-lg);
+  list-style:  "– ";
+  margin-left: var(--sp-md);
   margin-top:  var(--sp-xs);
+}
+
+.item__tasks li::marker {
+  color: var(--color-border);
 }
 
 .item__tasks li {
   font-size:     var(--fs-small);
   color:         var(--color-text-secondary);
+  text-align:    justify;
   margin-bottom: var(--sp-xs);
   line-height:   1.4;
 }
 
-/* === 8. Jobs ================================================ */
+/* === 8. Emplois ================================================ */
 .jobs__list {
   display:        flex;
   flex-direction: column;
   gap:            var(--sp-md);
 }
 
-/* === 9. Internships ========================================= */
+/* === 9. Stages ========================================= */
 .internships__list {
   display:        flex;
   flex-direction: column;
   gap:            var(--sp-md);
 }
 
-/* === 10. Awards ============================================= */
+/* === 10. Distinctions ============================================= */
 .cv__awards {
   display:        flex;
   flex-direction: column;
@@ -324,16 +329,22 @@ address {
 }
 
 .awards__list {
-  list-style:  disc;
-  margin-left: var(--sp-lg);
+  list-style:  "· ";
+  margin-left: var(--sp-md);
   display:     flex;
   flex-direction: column;
   gap:         var(--sp-xs);
 }
 
+.awards__list li::marker,
+.awards__sublist li::marker {
+  color: var(--color-border);
+}
+
 .awards__item {
   font-size:   var(--fs-small);
   color:       var(--color-text-secondary);
+  text-align:  justify;
   line-height: 1.4;
 }
 
@@ -343,8 +354,8 @@ address {
 }
 
 .awards__sublist {
-  list-style:  circle;
-  margin-left: var(--sp-lg);
+  list-style:  "· ";
+  margin-left: var(--sp-md);
   margin-top:  var(--sp-xs);
   display:     flex;
   flex-direction: column;
@@ -363,7 +374,7 @@ address {
   line-height: 1.4;
 }
 
-/* === 11. Print ============================================== */
+/* === 11. Impression ============================================== */
 @media print {
   body {
     background: white;
