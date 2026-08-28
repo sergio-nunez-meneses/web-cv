@@ -25,6 +25,7 @@
   --fs-section:  0.78rem;
   --fs-body:     0.75rem;
   --fs-small:    0.68rem;
+  --fs-xs:       0.48rem;
 
   /* Spacing */
   --sp-xs:  0.2rem;
@@ -40,7 +41,7 @@
   --page-pad-h:    18mm;
 
   /* Photo */
-  --photo-size: 80px;
+  --photo-size: 120px;
 }
 
 /* === 2. Reset & base ======================================== */
@@ -114,6 +115,7 @@ address {
   grid-template-columns: 3fr 2fr;
   gap:                   var(--sp-xl);
   align-items:           start;
+  margin-bottom :        var(--sp-md);
 }
 
 /* Left column: photo + identity */
@@ -161,8 +163,21 @@ address {
   color:       var(--color-text-meta);
 }
 
+.cv__contact-item {
+  display:     inline-flex;
+  align-items: center;
+  gap:         0.25em;
+}
+
 .cv__contact-separator {
   color: var(--color-border);
+}
+
+.cv__contact-icon {
+  width:          2rem;
+  height:         1rem;
+  vertical-align: middle;
+  flex-shrink:    0;
 }
 
 /* Right column: skills */
@@ -179,8 +194,10 @@ address {
 }
 
 .skills__item {
-  font-size:   var(--fs-small);
-  line-height: 1.4;
+  padding-left: 1em;
+  text-indent:  -1em;
+  font-size:    var(--fs-small);
+  line-height:  1.4;
 }
 
 .skills__category {
@@ -201,7 +218,7 @@ address {
   color:         var(--color-text-meta);
   border-top:    1px solid var(--color-border);
   padding-top:   var(--sp-xs);
-  margin-top:    var(--sp-xs);
+  margin-top:    var(--sp-lg);
 }
 
 /* === 6. Education (2-col) =================================== */
@@ -348,6 +365,12 @@ address {
     min-height: auto;
     padding:    0;
     gap:        8mm;
+  }
+
+  .cv__contact-item::after {
+    content:      attr(title);
+    margin-left:  0.2em;
+    font-size:    var(--fs-small);
   }
 
   @page {
