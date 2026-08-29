@@ -3,6 +3,47 @@
    Style minimaliste A4, noir/blanc
    ============================================================ */
 
+/* === 0. Polices locales ===================================== */
+@font-face {
+  font-family: 'Lato';
+  font-style:  normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('../fonts/lato-100.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/lato-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/lato-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/lato-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style:  normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/lato-900.woff2') format('woff2');
+}
+
 /* === 1. Variables =========================================== */
 :root {
   /* Couleurs */
@@ -17,8 +58,15 @@
   --color-link-hover:     #555555;
 
   /* Typographie */
-  --font-heading: Georgia, 'Times New Roman', serif;
-  --font-body:    'Helvetica Neue', Arial, Helvetica, sans-serif;
+  --font-heading: 'Lato', Georgia, 'Times New Roman', serif;
+  --font-body:    'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  /* Graisses Lato */
+  --fw-thin:   100;
+  --fw-light:  300;
+  --fw-normal: 400;
+  --fw-bold:   700;
+  --fw-black:  900;
 
   /* Tailles de police */
   --fs-name:     1.3rem;
@@ -32,6 +80,12 @@
   --sp-md:  0.75rem;
   --sp-lg:  1.1rem;
   --sp-xl:  1.6rem;
+
+  /* Espacements des listes */
+  --gap-skills-items: var(--sp-xs);
+  --gap-degree-items: var(--sp-xs);
+  --gap-job-items:    var(--sp-xs);
+  --gap-award-groups: var(--sp-sm);
 
   /* Page */
   --page-width:    210mm;
@@ -99,7 +153,7 @@ address {
 .cv__section-title {
   font-family:     var(--font-heading);
   font-size:       var(--fs-section);
-  font-weight:     bold;
+  font-weight:     var(--fw-black);
   text-transform:  uppercase;
   letter-spacing:  0.05em;
   border-bottom:   1px solid var(--color-section-line);
@@ -142,13 +196,14 @@ address {
 .cv__name {
   font-family:   var(--font-heading);
   font-size:     var(--fs-name);
-  font-weight:   bold;
+  font-weight:   var(--fw-black);
   color:         var(--color-text);
   margin-bottom: var(--sp-xs);
 }
 
 .cv__profession {
   font-size:     var(--fs-body);
+  font-weight:   var(--fw-normal);
   color:         var(--color-text-secondary);
   margin-bottom: var(--sp-sm);
 }
@@ -189,7 +244,7 @@ address {
 .skills__list {
   display:        flex;
   flex-direction: column;
-  gap:            var(--sp-sm);
+  gap:            var(--gap-skills-items);
   margin-bottom:  var(--sp-sm);
 }
 
@@ -210,8 +265,11 @@ address {
   line-height:    1;
 }
 
-.skills__level--notions  { color: var(--color-text-secondary); }
-.skills__level--learning { color: var(--color-text-secondary); }
+.skills__level--notions,
+.skills__level--learning {
+  font-weight:   var(--fw-light);
+  color:         var(--color-text-secondary);
+}
 
 .skills__legend {
   font-size:     var(--fs-small);
@@ -237,7 +295,7 @@ address {
 .training__list {
   display:        flex;
   flex-direction: column;
-  gap:            var(--sp-md);
+  gap:            var(--gap-degree-items);
 }
 
 .degrees__list .item__subtitle,
@@ -247,19 +305,17 @@ address {
 
 /* === 7. Styles partagés d'éléments ================================== */
 .item__title {
-  font-weight:   bold;
+  font-weight:   var(--fw-bold);
   font-size:     var(--fs-body);
-  /*margin-bottom: var(--sp-xs);*/ /* TODO: garder jusqu'à ce que le type de police ait été défini */
 }
 
 .item__meta {
-  font-weight: normal;
+  font-weight: var(--fw-light);
   font-size:   var(--fs-small);
   color:       var(--color-text-meta);
 }
 
 .item__subtitle {
-  font-style:    italic;
   font-size:     var(--fs-small);
   color:         var(--color-text-secondary);
   text-align:    justify;
@@ -291,11 +347,16 @@ address {
   line-height:   1.4;
 }
 
+.item__work {
+  font-style:  italic;
+  color: var(--color-text-secondary);
+}
+
 /* === 8. Emplois ================================================ */
 .jobs__list {
   display:        flex;
   flex-direction: column;
-  gap:            var(--sp-md);
+  gap:            var(--gap-job-items);
 }
 
 /* === 9. Stages ========================================= */
@@ -312,7 +373,7 @@ address {
 }
 
 .awards__group {
-  margin-bottom: var(--sp-md);
+  margin-bottom: var(--gap-award-groups);
 }
 
 .awards__group:last-child {
@@ -321,10 +382,10 @@ address {
 
 .awards__group-title {
   font-size:      var(--fs-small);
-  font-weight:    bold;
+  font-weight:    var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color:          var(--color-text-secondary);
+  color:          var(--color-text); /*--color-text-secondary*/
   margin-bottom:  var(--sp-xs);
 }
 
