@@ -5,43 +5,43 @@
 
 /* === 0. Polices locales ===================================== */
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 100;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  100;
   font-display: swap;
-  src: url('../fonts/lato-100.woff2') format('woff2');
+  src:          url('../fonts/lato-100.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 300;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  300;
   font-display: swap;
-  src: url('../fonts/lato-300.woff2') format('woff2');
+  src:          url('../fonts/lato-300.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 400;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  400;
   font-display: swap;
-  src: url('../fonts/lato-400.woff2') format('woff2');
+  src:          url('../fonts/lato-400.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 700;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  700;
   font-display: swap;
-  src: url('../fonts/lato-700.woff2') format('woff2');
+  src:          url('../fonts/lato-700.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 900;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  900;
   font-display: swap;
-  src: url('../fonts/lato-900.woff2') format('woff2');
+  src:          url('../fonts/lato-900.woff2') format('woff2');
 }
 
 /* === 1. Variables =========================================== */
@@ -88,10 +88,10 @@
   --gap-award-groups: var(--sp-sm);
 
   /* Page */
-  --page-width:    210mm;
-  --page-height:   297mm;
-  --page-pad-v:    14mm;
-  --page-pad-h:    18mm;
+  --page-width:    210mm; /* 49.606rem, 793.701px */
+  --page-height:   297mm; /* 70.157rem, 1122.52px */
+  --page-pad-v:    14mm; /* 3.307rem, 52.913px */
+  --page-pad-h:    18mm; /* 4.252rem, 68.031px */
 
   /* Photo */
   --photo-size: 120px;
@@ -138,16 +138,31 @@ address {
 
 /* === 3. Conteneur page CV =================================== */
 .cv {
-  background-color: var(--color-cv-bg);
-  width:            var(--page-width);
-  min-height:       var(--page-height);
-  padding:          var(--page-pad-v) var(--page-pad-h);
-  font-size:        var(--fs-body);
-  line-height:      1.45;
-  display:          flex;
-  flex-direction:   column;
-  gap:              var(--sp-lg);
+  background-color:      var(--color-cv-bg);
+  width:                 var(--page-width);
+  min-height:            var(--page-height);
+  padding:               var(--page-pad-v) var(--page-pad-h);
+  font-size:             var(--fs-body);
+  line-height:           1.45;
+  display:               grid;
+  grid-template-columns: 1fr 0.8fr;
+  grid-template-areas:
+    "header   degrees"
+    "training internships"
+    "jobs     jobs"
+    "awards   awards"
+    "skills   skills";
+  column-gap:            var(--sp-xl);
+  row-gap:               var(--sp-lg);
 }
+
+.cv__header      { grid-area: header; }
+.cv__degrees     { grid-area: degrees; }
+.cv__training    { grid-area: training; }
+.cv__internships { grid-area: internships; }
+.cv__jobs        { grid-area: jobs; }
+.cv__awards      { grid-area: awards; }
+.cv__skills      { grid-area: skills; }
 
 /* === 4. Titre de section partagé ================================ */
 .cv__section-title {
@@ -164,14 +179,9 @@ address {
 
 /* === 5. En-tête ============================================== */
 .cv__header {
-  display:               grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap:                   var(--sp-xl);
-  align-items:           start;
-  margin-bottom:         var(--sp-md);
+  align-self: start;
 }
 
-/* Colonne gauche : photo + identité */
 .cv__personal {
   display:        flex;
   flex-direction: column;
@@ -179,11 +189,11 @@ address {
 }
 
 .cv__photo-wrapper {
-  width:  var(--photo-size);
-  height: var(--photo-size);
-  overflow: hidden;
+  width:         var(--photo-size);
+  height:        var(--photo-size);
+  overflow:      hidden;
   border-radius: 50%;
-  flex-shrink: 0;
+  flex-shrink:   0;
 }
 
 .cv__photo {
@@ -235,60 +245,10 @@ address {
   flex-shrink:    0;
 }
 
-/* Colonne droite : compétences */
-.cv__skills {
-  display:        flex;
-  flex-direction: column;
-}
-
-.skills__list {
-  display:        flex;
-  flex-direction: column;
-  gap:            var(--gap-skills-items);
-  margin-bottom:  var(--sp-sm);
-}
-
-.skills__item {
-  padding-left: 1em;
-  text-indent:  -1em;
-  font-size:    var(--fs-small);
-  line-height:  1.4;
-}
-
-.skills__category {
-  font-weight: bold;
-}
-
-.skills__level {
-  font-size:      0.6rem;
-  vertical-align: super;
-  line-height:    1;
-}
-
-.skills__level--notions,
-.skills__level--learning {
-  font-weight:   var(--fw-light);
-  color:         var(--color-text-secondary);
-}
-
-.skills__legend {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-meta);
-  border-top:    1px solid var(--color-border);
-  padding-top:   var(--sp-xs);
-  margin-top:    var(--sp-lg);
-}
-
-.skills__legend .skills__level {
-  margin-right: -0.1rem;
-}
-
-/* === 6. Parcours universitaire (2-col) =================================== */
-.cv__education {
-  display:               grid;
-  grid-template-columns: 0.7fr 1fr;
-  gap:                   var(--sp-xl);
-  align-items:           start;
+/* === 6. Parcours universitaire =================================== */
+.cv__degrees,
+.cv__training {
+  align-self: start;
 }
 
 .degrees__list,
@@ -349,7 +309,7 @@ address {
 
 .item__work {
   font-style:  italic;
-  color: var(--color-text-secondary);
+  color:       var(--color-text-secondary);
 }
 
 /* === 8. Emplois ================================================ */
@@ -385,16 +345,16 @@ address {
   font-weight:    var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color:          var(--color-text); /*--color-text-secondary*/
+  color:          var(--color-text);
   margin-bottom:  var(--sp-xs);
 }
 
 .awards__list {
-  list-style:  "· ";
-  margin-left: var(--sp-md);
-  display:     flex;
+  list-style:     "· ";
+  margin-left:    var(--sp-md);
+  display:        flex;
   flex-direction: column;
-  gap:         var(--sp-xs);
+  gap:            var(--sp-xs);
 }
 
 .awards__list li::marker,
@@ -415,12 +375,12 @@ address {
 }
 
 .awards__sublist {
-  list-style:  "· ";
-  margin-left: var(--sp-md);
-  margin-top:  var(--sp-xs);
-  display:     flex;
+  list-style:     "· ";
+  margin-left:    var(--sp-md);
+  margin-top:     var(--sp-xs);
+  display:        flex;
   flex-direction: column;
-  gap:         var(--sp-xs);
+  gap:            var(--sp-xs);
 }
 
 .awards__sublist li {
@@ -435,7 +395,56 @@ address {
   line-height: 1.4;
 }
 
-/* === 11. Impression ============================================== */
+/* === 11. Compétences ============================================= */
+.cv__skills {
+  display:        flex;
+  flex-direction: column;
+}
+
+.skills__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--gap-skills-items);
+  margin-bottom:  var(--sp-sm);
+  text-align:     justify;
+}
+
+.skills__item {
+  padding-left: 1em;
+  text-indent:  -1em;
+  font-size:    var(--fs-small);
+  line-height:  1.4;
+}
+
+.skills__category {
+  font-weight: var(--fw-bold);
+}
+
+.skills__level {
+  font-size:      0.6rem;
+  vertical-align: super;
+  line-height:    1;
+}
+
+.skills__level--notions,
+.skills__level--learning {
+  font-weight:   var(--fw-light);
+  color:         var(--color-text-secondary);
+}
+
+.skills__legend {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-meta);
+  border-top:    1px solid var(--color-border);
+  padding-top:   var(--sp-xs);
+  margin-top:    var(--sp-lg);
+}
+
+.skills__legend .skills__level {
+  margin-right: -0.1rem;
+}
+
+/* === 12. Impression ============================================== */
 @media print {
   body {
     background: white;
@@ -461,9 +470,142 @@ address {
   }
 }
 
-/* === 12. Mobile (à définir selon structure future) ==========
-@img (max-width: 600px) {
-  .cv__header    { grid-template-columns: 1fr; }
-  .cv__education { grid-template-columns: 1fr; }
+/* === 13. Design responsive ======================================== */
+@media (min-width: 768px) and (max-width: 820px) {
+  .training__list .item__subtitle {
+    text-align: unset;
+  }
 }
-============================================================= */
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .cv__name {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cv {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header      degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills";
+    /*
+      * valeurs verticales :
+      * - deux points : (600, 36.912px) et (768, 52.913px)
+      * - pente : a = (52.913 − 36.912) / (768 − 600) = 0.0952 → 9.52vw
+      * - ordonnée à l'origine : b = 36.912 − 0.0952 × 600 = -20.208px
+      * - val = calc(-20.208px + 9.52vw)
+      *
+      * valeurs horizontales :
+      * - deux points : (600, 52.032px) et (768, 68.031px)
+      * - pente : a = (68.031 - 52.032) / (768 - 600) = 0.095 → 9.52vw
+      * - ordonnée à l'origine : b = 52.032 - 0.095 × 600 = -4.968px
+      * - val = calc(-4.968px + 9.52vw)
+      */
+    padding: clamp(36.912px, calc(-20.208px + 9.52vw), var(--page-pad-v))
+             clamp(52.032px, calc(-4.968px + 9.52vw), var(--page-pad-h));
+  }
+}
+
+@media (max-width: 600px) {
+  .cv {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "degrees"
+      "training"
+      "internships"
+      "jobs"
+      "awards"
+      "skills";
+    padding: 1rem;
+  }
+
+  /* Section personal */
+  .cv__personal {
+    flex-direction: row;
+  }
+
+  .cv__identity {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+  }
+
+  .cv__name {
+    font-size: 1rem;
+  }
+
+  .cv__profession {
+    white-space: pre;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 820px) {
+  .degrees__list .item__subtitle {
+    text-align: unset;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 600px) {
+  .cv {
+    grid-template-columns: 1fr 1.25fr;
+    grid-template-areas:
+      "header      degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills";
+  }
+
+  .cv__personal {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 600px) {
+  .cv {
+    /*
+    * valeurs verticales :
+    * - deux points : (420, 16px) et (600, 36.912px)
+    * - pente : a = (36.912 − 16) / (600 − 420) = 0,1162 → 11.62vw
+    * - ordonnée à l'origine : b = 16 − 0,1162 × 420 = -32.804px
+    * - val = calc(-32.804px + 11.62vw)
+    *
+    * valeurs horizontales :
+    * - deux points : (420, 16px) et (600, 52.032px)
+    * - pente : a = (52.032 - 16) / (600 - 420) = 0.2002 → 20vw
+    * - ordonnée à l'origine : b = 16 - 0.2002 × 420 = -68.084px
+    * - val = calc(-68.084px + 20vw)
+    *
+    */
+    padding: clamp(1rem, calc(-32.804px + 11.62vw), 36.912px)
+             clamp(1rem, calc(-68.084px + 20vw), 52.032px);
+  }
+}
+
+@media (max-width: 420px) {
+  .cv__photo-wrapper {
+    align-self:  center;
+    flex-shrink: unset;
+  }
+
+  /* Sections degrees, training, jobs, awards : suppression du texte justifié */
+  .skills__list,
+  .item__subtitle,
+  .item__tasks li,
+  .awards__item {
+    text-align: left;
+  }
+}
+
+@media (max-width: 376px) {
+  .cv__photo-wrapper {
+    display: none;
+  }
+}
