@@ -11,7 +11,6 @@
 
     <!-- ===================== HEADER ===================== -->
     <header class="cv__header">
-
       <div class="cv__personal">
         <div class="cv__photo-wrapper">
           <img class="cv__photo" src="public/img/photo.png" alt="Sergio Núñez Meneses">
@@ -44,59 +43,10 @@
           </address>
         </div>
       </div>
-
-      <div class="cv__skills">
-        <h2 class="cv__section-title">Compétences</h2>
-        <ul class="skills__list">
-          <li class="skills__item">
-            <span class="skills__category">Langages et frameworks :</span>
-            <span class="skills__values">PHP/Symfony, JavaScript, Go,
-              Python<sup class="skills__level skills__level--learning">**</sup>
-            </span>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">MAO :</span>
-            <span class="skills__values">Max, Pure Data,
-              SuperCollider<sup class="skills__level skills__level--learning">**</sup>,
-              OpenMusic<sup class="skills__level skills__level--notions">*</sup>
-            </span>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">DAWs :</span>
-            <span class="skills__values">Reaper, Ableton Live,
-              Pro Tools<sup class="skills__level skills__level--notions">*</sup>
-            </span>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Prototypage physique et interaction :</span>
-            <span class="skills__values">
-              Arduino<sup class="skills__level skills__level--learning">**</sup>,
-              Raspberry Pi<sup class="skills__level skills__level--learning">**</sup>
-            </span>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Outils :</span>
-            <span class="skills__values">Git,
-              Claude Code<sup class="skills__level skills__level--learning">**</sup>
-            </span>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Langues :</span>
-            <span class="skills__values">Espagnol (natif), Français (bilingue), Anglais (TOEFL iBT MyBest Scores : 92)</span>
-          </li>
-        </ul>
-        <p class="skills__legend">
-          <sup class="skills__level skills__level--notions">*</sup> notions &nbsp;
-          <sup class="skills__level skills__level--learning">**</sup> en apprentissage
-        </p>
-      </div>
-
     </header>
 
-    <!-- ===================== DIPLÔMES + FORMATIONS ===================== -->
-    <section class="cv__education">
-
-      <div class="cv__degrees">
+    <!-- ===================== DIPLÔMES ===================== -->
+    <section class="cv__degrees">
         <h2 class="cv__section-title">Diplômes</h2>
         <ul class="degrees__list">
           <li class="degrees__item">
@@ -118,9 +68,10 @@
             </p>
           </li>
         </ul>
-      </div>
+    </section>
 
-      <div class="cv__training">
+    <!-- ===================== FORMATIONS ===================== -->
+    <section class="cv__training">
         <h2 class="cv__section-title">Formations</h2>
         <ul class="training__list">
           <li class="training__item">
@@ -148,8 +99,28 @@
             </p>
           </li>
         </ul>
-      </div>
+    </section>
 
+    <!-- ===================== STAGES ===================== -->
+    <section class="cv__internships">
+      <h2 class="cv__section-title">Stages</h2>
+      <ul class="internships__list">
+        <li class="internships__item">
+          <div class="item__header">
+            <p class="item__title">Concepteur d'interaction son-mouvement
+              <span class="item__meta">(2014-2015)</span>
+            </p>
+            <p class="item__subtitle">Universidad de Chile
+              <span class="item__meta">(Santiago, Chili)</span>
+            </p>
+          </div>
+          <ul class="item__tasks">
+            <li>Projet de recherche-création <a class="item__work">Emovere: Cuerpo, Sonido y Movimiento</a>,
+              sous la direction de Javier Jaimovich
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <!-- ===================== EMPLOIS ===================== -->
@@ -248,28 +219,6 @@
       </ul>
     </section>
 
-    <!-- ===================== STAGES ===================== -->
-    <section class="cv__internships">
-      <h2 class="cv__section-title">Stages</h2>
-      <ul class="internships__list">
-        <li class="internships__item">
-          <div class="item__header">
-            <p class="item__title">Concepteur d'interaction son-mouvement
-              <span class="item__meta">(2014-2015)</span>
-            </p>
-            <p class="item__subtitle">Universidad de Chile
-              <span class="item__meta">(Santiago, Chili)</span>
-            </p>
-          </div>
-          <ul class="item__tasks">
-            <li>Projet de recherche-création <a class="item__work">Emovere: Cuerpo, Sonido y Movimiento</a>,
-              sous la direction de Javier Jaimovich
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
     <!-- ===================== PRIX, RÉSIDENCES ET COMMUNICATIONS ===================== -->
     <section class="cv__awards">
       <h2 class="cv__section-title">Prix, résidences et communications</h2>
@@ -335,7 +284,53 @@
           </li>
         </ul>
       </div>
+    </section>
 
+    <!-- ===================== COMPÉTENCES ===================== -->
+    <section class="cv__skills">
+      <h2 class="cv__section-title">Compétences</h2>
+      <ul class="skills__list">
+        <li class="skills__item">
+          <span class="skills__category">Langages et frameworks :</span>
+          <span class="skills__values">PHP/Symfony, JavaScript, Go,
+            Python<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">MAO :</span>
+          <span class="skills__values">Max, Pure Data,
+            SuperCollider<sup class="skills__level skills__level--learning">**</sup>,
+            OpenMusic<sup class="skills__level skills__level--notions">*</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">DAWs :</span>
+          <span class="skills__values">Reaper, Ableton Live,
+            Pro Tools<sup class="skills__level skills__level--notions">*</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Prototypage physique et interaction :</span>
+          <span class="skills__values">
+            Arduino<sup class="skills__level skills__level--learning">**</sup>,
+            Raspberry Pi<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Outils :</span>
+          <span class="skills__values">Git,
+            Claude Code<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Langues :</span>
+          <span class="skills__values">Espagnol (natif), Français (bilingue), Anglais (TOEFL iBT MyBest Scores : 92)</span>
+        </li>
+      </ul>
+      <p class="skills__legend">
+        <sup class="skills__level skills__level--notions">*</sup> notions &nbsp;
+        <sup class="skills__level skills__level--learning">**</sup> en apprentissage
+      </p>
     </section>
 
   </main>

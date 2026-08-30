@@ -138,16 +138,31 @@ address {
 
 /* === 3. Conteneur page CV =================================== */
 .cv {
-  background-color: var(--color-cv-bg);
-  width:            var(--page-width);
-  min-height:       var(--page-height);
-  padding:          var(--page-pad-v) var(--page-pad-h);
-  font-size:        var(--fs-body);
-  line-height:      1.45;
-  display:          flex;
-  flex-direction:   column;
-  gap:              var(--sp-lg);
+  background-color:      var(--color-cv-bg);
+  width:                 var(--page-width);
+  min-height:            var(--page-height);
+  padding:               var(--page-pad-v) var(--page-pad-h);
+  font-size:             var(--fs-body);
+  line-height:           1.45;
+  display:               grid;
+  grid-template-columns: 1fr 0.8fr;
+  grid-template-areas:
+    "header   degrees"
+    "training internships"
+    "jobs     jobs"
+    "awards   awards"
+    "skills   skills";
+  column-gap:            var(--sp-xl);
+  row-gap:               var(--sp-lg);
 }
+
+.cv__header      { grid-area: header; }
+.cv__degrees     { grid-area: degrees; }
+.cv__training    { grid-area: training; }
+.cv__internships { grid-area: internships; }
+.cv__jobs        { grid-area: jobs; }
+.cv__awards      { grid-area: awards; }
+.cv__skills      { grid-area: skills; }
 
 /* === 4. Titre de section partagé ================================ */
 .cv__section-title {
@@ -164,14 +179,9 @@ address {
 
 /* === 5. En-tête ============================================== */
 .cv__header {
-  display:               grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap:                   var(--sp-xl);
-  align-items:           start;
-  margin-bottom:         var(--sp-md);
+  align-self: start;
 }
 
-/* Colonne gauche : photo + identité */
 .cv__personal {
   display:        flex;
   flex-direction: column;
@@ -235,61 +245,10 @@ address {
   flex-shrink:    0;
 }
 
-/* Colonne droite : compétences */
-.cv__skills {
-  display:        flex;
-  flex-direction: column;
-}
-
-.skills__list {
-  display:        flex;
-  flex-direction: column;
-  gap:            var(--gap-skills-items);
-  margin-bottom:  var(--sp-sm);
-  text-align:     justify;
-}
-
-.skills__item {
-  padding-left: 1em;
-  text-indent:  -1em;
-  font-size:    var(--fs-small);
-  line-height:  1.4;
-}
-
-.skills__category {
-  font-weight: bold;
-}
-
-.skills__level {
-  font-size:      0.6rem;
-  vertical-align: super;
-  line-height:    1;
-}
-
-.skills__level--notions,
-.skills__level--learning {
-  font-weight:   var(--fw-light);
-  color:         var(--color-text-secondary);
-}
-
-.skills__legend {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-meta);
-  border-top:    1px solid var(--color-border);
-  padding-top:   var(--sp-xs);
-  margin-top:    var(--sp-lg);
-}
-
-.skills__legend .skills__level {
-  margin-right: -0.1rem;
-}
-
-/* === 6. Parcours universitaire (2-col) =================================== */
-.cv__education {
-  display:               grid;
-  grid-template-columns: 0.7fr 1fr;
-  gap:                   var(--sp-xl);
-  align-items:           start;
+/* === 6. Parcours universitaire =================================== */
+.cv__degrees,
+.cv__training {
+  align-self: start;
 }
 
 .degrees__list,
@@ -386,7 +345,7 @@ address {
   font-weight:    var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color:          var(--color-text); /*--color-text-secondary*/
+  color:          var(--color-text);
   margin-bottom:  var(--sp-xs);
 }
 
@@ -436,7 +395,56 @@ address {
   line-height: 1.4;
 }
 
-/* === 11. Impression ============================================== */
+/* === 11. Compétences ============================================= */
+.cv__skills {
+  display:        flex;
+  flex-direction: column;
+}
+
+.skills__list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--gap-skills-items);
+  margin-bottom:  var(--sp-sm);
+  text-align:     justify;
+}
+
+.skills__item {
+  padding-left: 1em;
+  text-indent:  -1em;
+  font-size:    var(--fs-small);
+  line-height:  1.4;
+}
+
+.skills__category {
+  font-weight: var(--fw-bold);
+}
+
+.skills__level {
+  font-size:      0.6rem;
+  vertical-align: super;
+  line-height:    1;
+}
+
+.skills__level--notions,
+.skills__level--learning {
+  font-weight:   var(--fw-light);
+  color:         var(--color-text-secondary);
+}
+
+.skills__legend {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-meta);
+  border-top:    1px solid var(--color-border);
+  padding-top:   var(--sp-xs);
+  margin-top:    var(--sp-lg);
+}
+
+.skills__legend .skills__level {
+  margin-right: -0.1rem;
+}
+
+/* === 12. Impression ============================================== */
 @media print {
   body {
     background: white;
@@ -462,25 +470,52 @@ address {
   }
 }
 
-/* === 12. Design responsive ======================================== */
-@media (max-width: 794px) {
-  .cv__header    { grid-template-columns: 1fr; }
-  .cv__education { grid-template-columns: 1fr; }
+/* === 13. Design responsive ======================================== */
+@media (max-width: 768px) {
+  .cv {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header      degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills";
+    /*
+      * valeurs verticales :
+      * - deux points : (600, 36.912px) et (768, 52.913px)
+      * - pente : a = (52.913 − 36.912) / (768 − 600) = 0.0952 → 9.52vw
+      * - ordonnée à l'origine : b = 36.912 − 0.0952 × 600 = -20.208px
+      * - val = calc(-20.208px + 9.52vw)
+      *
+      * valeurs horizontales :
+      * - deux points : (600, 52.032px) et (768, 68.031px)
+      * - pente : a = (68.031 - 52.032) / (768 - 600) = 0.095 → 9.52vw
+      * - ordonnée à l'origine : b = 52.032 - 0.095 × 600 = -4.968px
+      * - val = calc(-4.968px + 9.52vw)
+      */
+    padding: clamp(36.912px, calc(-20.208px + 9.52vw), var(--page-pad-v))
+             clamp(52.032px, calc(-4.968px + 9.52vw), var(--page-pad-h));
+  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   .cv {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "degrees"
+      "training"
+      "internships"
+      "jobs"
+      "awards"
+      "skills";
     padding: 1rem;
   }
 
-  /* Section identité */
+  /* Section personal */
   .cv__personal {
     flex-direction: row;
-  }
-
-  .cv__photo-wrapper {
-    order:         1;
-    flex-shrink:   unset;
   }
 
   .cv__identity {
@@ -494,8 +529,52 @@ address {
   }
 
   .cv__profession {
-    margin-top:    clamp(0rem, calc(-51.2px + 16vw), 1rem);
-    margin-bottom: clamp(0.4rem, calc(-24.32px + 9.6vw), 1rem);
+    white-space: pre;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 600px) {
+  .cv {
+    grid-template-columns: 1fr 1.25fr;
+    grid-template-areas:
+      "header      degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills";
+  }
+
+  .cv__personal {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 600px) {
+  .cv {
+    /*
+    * valeurs verticales :
+    * - deux points : (420, 16px) et (600, 36.912px)
+    * - pente : a = (36.912 − 16) / (600 − 420) = 0,1162 → 11.62vw
+    * - ordonnée à l'origine : b = 16 − 0,1162 × 420 = -32.804px
+    * - val = calc(-32.804px + 11.62vw)
+    *
+    * valeurs horizontales :
+    * - deux points : (420, 16px) et (600, 52.032px)
+    * - pente : a = (52.032 - 16) / (600 - 420) = 0.2002 → 20vw
+    * - ordonnée à l'origine : b = 16 - 0.2002 × 420 = -68.084px
+    * - val = calc(-68.084px + 20vw)
+    *
+    */
+    padding: clamp(1rem, calc(-32.804px + 11.62vw), 36.912px)
+             clamp(1rem, calc(-68.084px + 20vw), 52.032px);
+  }
+}
+
+@media (max-width: 420px) {
+  .cv__photo-wrapper {
+    align-self:  center;
+    flex-shrink: unset;
   }
 
   /* Sections education, jobs, awards : suppression du texte justifié */
@@ -507,8 +586,8 @@ address {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .cv__photo-wrapper {
-    border-radius: 0;
+    display: none;
   }
 }
