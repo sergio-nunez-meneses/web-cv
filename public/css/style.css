@@ -5,43 +5,43 @@
 
 /* === 0. Polices locales ===================================== */
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 100;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  100;
   font-display: swap;
-  src: url('../fonts/lato-100.woff2') format('woff2');
+  src:          url('../fonts/lato-100.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 300;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  300;
   font-display: swap;
-  src: url('../fonts/lato-300.woff2') format('woff2');
+  src:          url('../fonts/lato-300.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 400;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  400;
   font-display: swap;
-  src: url('../fonts/lato-400.woff2') format('woff2');
+  src:          url('../fonts/lato-400.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 700;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  700;
   font-display: swap;
-  src: url('../fonts/lato-700.woff2') format('woff2');
+  src:          url('../fonts/lato-700.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Lato';
-  font-style:  normal;
-  font-weight: 900;
+  font-family:  'Lato';
+  font-style:   normal;
+  font-weight:  900;
   font-display: swap;
-  src: url('../fonts/lato-900.woff2') format('woff2');
+  src:          url('../fonts/lato-900.woff2') format('woff2');
 }
 
 /* === 1. Variables =========================================== */
@@ -88,10 +88,10 @@
   --gap-award-groups: var(--sp-sm);
 
   /* Page */
-  --page-width:    210mm;
-  --page-height:   297mm;
-  --page-pad-v:    14mm;
-  --page-pad-h:    18mm;
+  --page-width:    210mm; /* 49.606rem, 793.701px */
+  --page-height:   297mm; /* 70.157rem, 1122.52px */
+  --page-pad-v:    14mm; /* 3.307rem, 52.913px */
+  --page-pad-h:    18mm; /* 4.252rem, 68.031px */
 
   /* Photo */
   --photo-size: 120px;
@@ -179,11 +179,11 @@ address {
 }
 
 .cv__photo-wrapper {
-  width:  var(--photo-size);
-  height: var(--photo-size);
-  overflow: hidden;
+  width:         var(--photo-size);
+  height:        var(--photo-size);
+  overflow:      hidden;
   border-radius: 50%;
-  flex-shrink: 0;
+  flex-shrink:   0;
 }
 
 .cv__photo {
@@ -246,6 +246,7 @@ address {
   flex-direction: column;
   gap:            var(--gap-skills-items);
   margin-bottom:  var(--sp-sm);
+  text-align:     justify;
 }
 
 .skills__item {
@@ -349,7 +350,7 @@ address {
 
 .item__work {
   font-style:  italic;
-  color: var(--color-text-secondary);
+  color:       var(--color-text-secondary);
 }
 
 /* === 8. Emplois ================================================ */
@@ -390,11 +391,11 @@ address {
 }
 
 .awards__list {
-  list-style:  "· ";
-  margin-left: var(--sp-md);
-  display:     flex;
+  list-style:     "· ";
+  margin-left:    var(--sp-md);
+  display:        flex;
   flex-direction: column;
-  gap:         var(--sp-xs);
+  gap:            var(--sp-xs);
 }
 
 .awards__list li::marker,
@@ -415,12 +416,12 @@ address {
 }
 
 .awards__sublist {
-  list-style:  "· ";
-  margin-left: var(--sp-md);
-  margin-top:  var(--sp-xs);
-  display:     flex;
+  list-style:     "· ";
+  margin-left:    var(--sp-md);
+  margin-top:     var(--sp-xs);
+  display:        flex;
   flex-direction: column;
-  gap:         var(--sp-xs);
+  gap:            var(--sp-xs);
 }
 
 .awards__sublist li {
@@ -461,9 +462,53 @@ address {
   }
 }
 
-/* === 12. Mobile (à définir selon structure future) ==========
-@img (max-width: 600px) {
+/* === 12. Design responsive ======================================== */
+@media (max-width: 794px) {
   .cv__header    { grid-template-columns: 1fr; }
   .cv__education { grid-template-columns: 1fr; }
 }
-============================================================= */
+
+@media (max-width: 420px) {
+  .cv {
+    padding: 1rem;
+  }
+
+  /* Section identité */
+  .cv__personal {
+    flex-direction: row;
+  }
+
+  .cv__photo-wrapper {
+    order:         1;
+    flex-shrink:   unset;
+  }
+
+  .cv__identity {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+  }
+
+  .cv__name {
+    font-size: 1rem;
+  }
+
+  .cv__profession {
+    margin-top:    clamp(0rem, calc(-51.2px + 16vw), 1rem);
+    margin-bottom: clamp(0.4rem, calc(-24.32px + 9.6vw), 1rem);
+  }
+
+  /* Sections education, jobs, awards : suppression du texte justifié */
+  .skills__list,
+  .item__subtitle,
+  .item__tasks li,
+  .awards__item {
+    text-align: left;
+  }
+}
+
+@media (max-width: 375px) {
+  .cv__photo-wrapper {
+    border-radius: 0;
+  }
+}
