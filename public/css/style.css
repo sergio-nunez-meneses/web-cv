@@ -21,10 +21,6 @@ html {
 
 body {
   background-color: var(--color-page-bg);
-  background-image:
-    linear-gradient(rgba(160, 140, 100, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(160, 140, 100, 0.15) 1px, transparent 1px);
-  background-size:  20px 20px;
   font-family:      var(--font-body);
   color:            var(--color-text);
   padding:          2rem;
@@ -141,6 +137,10 @@ address {
 
 /* === 5. Conteneur page CV =================================== */
 .cv {
+  background-image:
+                         linear-gradient(rgba(160, 140, 100, 0.1) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(160, 140, 100, 0.1) 1px, transparent 1px);
+  background-size:       20px 20px;
   background-color:      var(--color-cv-bg);
   width:                 var(--page-width);
   min-height:            var(--page-height);

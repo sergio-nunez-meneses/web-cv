@@ -2,4 +2,5 @@
 .idea
 
 # Fichiers média personnels (photo, etc.) non versionnés
-public/img
+public/img/*
+!public/img/profile.jpg
