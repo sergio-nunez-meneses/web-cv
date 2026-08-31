@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV — Sergio Núñez Meneses</title>
+  <meta name="description" content="CV de Sergio Núñez Meneses — compositeur et développeur full stack.">
+  <meta name="author" content="Sergio Núñez Meneses">
+  <meta property="og:title" content="CV — Sergio Núñez Meneses">
+  <meta property="og:description" content="Compositeur et développeur full stack.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
@@ -11,114 +17,148 @@
 
     <!-- ===================== HEADER ===================== -->
     <header class="cv__header">
-
       <div class="cv__personal">
         <div class="cv__photo-wrapper">
-          <img class="cv__photo" src="public/img/photo.png" alt="Sergio Núñez Meneses">
+          <img class="cv__photo" src="public/img/profile.jpg" alt="Sergio Núñez Meneses">
         </div>
         <div class="cv__identity">
           <h1 class="cv__name">Sergio Núñez Meneses</h1>
-          <p class="cv__profession">Compositeur, développeur full stack</p>
+          <p class="cv__profession item__highlight">Compositeur, développeur full stack</p>
           <address class="cv__contact">
-            <a class="cv__contact-item" href="https://github.com/sergio-nunez-meneses">github</a>
+            <a class="cv__contact-item" href="https://github.com/sergio-nunez-meneses" aria-label="Profil GitHub"
+               title="github.com/sergio-nunez-meneses">
+              <svg class="cv__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMinYMid meet"
+                   fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
             <span class="cv__contact-separator">|</span>
-            <a class="cv__contact-item" href="mailto:snunezmeneses@proton.me">snunezmeneses@proton.me</a>
+            <a class="cv__contact-item" href="mailto:snunezmeneses@proton.me" aria-label="Adresse email" title="snunezmeneses@proton.me">
+              <svg class="cv__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMinYMid meet"
+                   fill="currentColor" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
             <span class="cv__contact-separator">|</span>
-            <span class="cv__contact-item">+33 7 61 56 19 54</span>
+            <a class="cv__contact-item" href="tel:+33761561954" aria-label="Numéro de téléphone" title="+33 7 61 56 19 54">
+              <svg class="cv__contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMinYMid meet"
+                   fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </a>
           </address>
         </div>
       </div>
-
-      <div class="cv__skills">
-        <h2 class="cv__section-title">Compétences</h2>
-        <ul class="skills__list">
-          <li class="skills__item">
-            <span class="skills__category">Langages et frameworks</span> :
-            PHP/Symfony, JavaScript, Go,
-            Python<sup class="skills__level skills__level--learning">**</sup>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Outils</span> : Git
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Prototypage physique et interaction</span> :
-            Arduino<sup class="skills__level skills__level--learning">**</sup>,
-            Raspberry Pi<sup class="skills__level skills__level--learning">**</sup>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">MAO</span> :
-            Max, Pure Data,
-            SuperCollider<sup class="skills__level skills__level--learning">**</sup>,
-            OpenMusic<sup class="skills__level skills__level--notions">*</sup>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">DAWs</span> :
-            Reaper, Ableton Live,
-            Pro Tools<sup class="skills__level skills__level--notions">*</sup>
-          </li>
-          <li class="skills__item">
-            <span class="skills__category">Langues</span> :
-            Espagnol (natif), Français (bilingue), Anglais (TOEFL iBT MyBest Scores : 92)
-          </li>
-        </ul>
-        <p class="skills__legend">
-          <sup class="skills__level skills__level--notions">*</sup> notions &nbsp;
-          <sup class="skills__level skills__level--learning">**</sup> en apprentissage
-        </p>
-      </div>
-
     </header>
 
-    <!-- ===================== DIPLÔMES + FORMATIONS ===================== -->
-    <section class="cv__education">
-
-      <div class="cv__degrees">
-        <h2 class="cv__section-title">Diplômes</h2>
+    <!-- ===================== DIPLÔMES ===================== -->
+    <section class="cv__degrees">
+        <h2 class="cv__section-title item__highlight">Diplômes</h2>
         <ul class="degrees__list">
           <li class="degrees__item">
             <p class="item__title">Master en Composition Musicale</p>
-            <p class="item__subtitle">Universidad de Chile (Santiago, Chili), 2023-2024</p>
+            <p class="item__subtitle">Universidad de Chile
+              <span class="item__meta">(Santiago, Chili),</span> 2023-2024
+            </p>
           </li>
           <li class="degrees__item">
             <p class="item__title">Bac+2 en Développement Web et Web Mobile</p>
-            <p class="item__subtitle">Access Code School (Nevers, France), 2020-2021</p>
+            <p class="item__subtitle">Access Code School
+              <span class="item__meta">(Nevers, France),</span> 2020-2021
+            </p>
           </li>
           <li class="degrees__item">
             <p class="item__title">Licence en Composition Musicale</p>
-            <p class="item__subtitle">Universidad de Chile (Santiago, Chili), 2009-2013</p>
+            <p class="item__subtitle">Universidad de Chile
+              <span class="item__meta">(Santiago, Chili),</span> 2009-2013
+            </p>
           </li>
         </ul>
-      </div>
+    </section>
 
-      <div class="cv__training">
-        <h2 class="cv__section-title">Formations</h2>
+    <!-- ===================== FORMATIONS ===================== -->
+    <section class="cv__training">
+        <h2 class="cv__section-title item__highlight">Formations</h2>
         <ul class="training__list">
           <li class="training__item">
-            <p class="item__title">Ircam (Paris, France)</p>
-            <p class="item__subtitle">Cursus de composition et d'informatique musicale, 2018-2019</p>
+            <p class="item__title">Ircam
+              <span class="item__meta">(Paris, France)</span>
+            </p>
+            <p class="item__subtitle">Cursus de composition et d'informatique musicale,
+              <span class="item__meta">2018-2019</span>
+            </p>
           </li>
           <li class="training__item">
-            <p class="item__title">Haute École de Musique de Genève-HEM (Suisse)</p>
-            <p class="item__subtitle">1ère année du Master en composition de musique mixte (mémoire non soutenu), 2018-2019</p>
+            <p class="item__title">Haute École de Musique de Genève-HEM
+              <span class="item__meta">(Suisse)</span>
+            </p>
+            <p class="item__subtitle">1ère année du Master en composition de musique mixte
+              <span class="item__meta">(mémoire non soutenu),</span> 2018-2019
+            </p>
           </li>
           <li class="training__item">
-            <p class="item__title">Académie supérieure de musique de Strasbourg-HEAR (France)</p>
-            <p class="item__subtitle">1ères et 2ème années du Master en création et interprétation électroacoustique (mémoire non soutenu), 2016-2018</p>
+            <p class="item__title">Académie supérieure de musique de Strasbourg-HEAR
+              <span class="item__meta">(France)</span>
+            </p>
+            <p class="item__subtitle">1ères et 2ème années du Master en création et interprétation électroacoustique
+              <span class="item__meta">(mémoire non soutenu),</span> 2016-2018
+            </p>
           </li>
         </ul>
-      </div>
+    </section>
 
+    <!-- ===================== STAGES ===================== -->
+    <section class="cv__internships">
+      <h2 class="cv__section-title item__highlight">Stages</h2>
+      <ul class="internships__list">
+        <li class="internships__item">
+          <div class="item__header">
+            <p class="item__title">Développeur full stack
+              <span class="item__meta">(2020-2021)</span>
+            </p>
+            <p class="item__subtitle">DAVI The Humanizers
+              <span class="item__meta">(Nevers, France)</span>
+            </p>
+          </div>
+          <ul class="item__tasks">
+            <li>Conception et développement d’un serveur d’authentification et d’autorisation,
+              sous la direction de <span class="item__highlight">Yoann Moreau</span></li>
+          </ul>
+        </li>
+
+        <li class="internships__item">
+          <div class="item__header">
+            <p class="item__title">Designer sonore d'interaction son-mouvement
+              <span class="item__meta">(2014-2015)</span>
+            </p>
+            <p class="item__subtitle">Universidad de Chile
+              <span class="item__meta">(Santiago, Chili)</span>
+            </p>
+          </div>
+          <ul class="item__tasks">
+            <li>Projet de recherche-création
+              <a class="item__work link__highlight" href="https://emovere.cl/emovere-cuerpo-sonido-y-movimiento/">
+                Emovere: Cuerpo, Sonido y Movimiento
+              </a>, sous la direction de <span class="item__highlight">Dr. Javier Jaimovich</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <!-- ===================== EMPLOIS ===================== -->
     <section class="cv__jobs">
-      <h2 class="cv__section-title">Emplois</h2>
+      <h2 class="cv__section-title item__highlight">Emplois</h2>
       <ul class="jobs__list">
 
         <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Développeur full stack <span class="item__meta">(CDI, 2024-2026)</span></p>
-            <p class="item__subtitle">Dialotel (Paris, France)</p>
+            <p class="item__title">Développeur full stack
+              <span class="item__meta">(CDI, 2024-2026)</span>
+            </p>
+            <p class="item__subtitle">Dialotel
+              <span class="item__meta">(Paris, France)</span>
+            </p>
           </div>
           <ul class="item__tasks">
             <li>Maintenance et évolution : applications de téléphonie (Go, FreeSWITCH), CMS et API (Symfony), plugin WordPress personnalisé (PHP natif)</li>
@@ -128,85 +168,127 @@
 
         <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Encadrement de stage de fin de formation <span class="item__meta">(Freelance, 2022)</span></p>
-            <p class="item__subtitle">Access Code School (Nevers, France)</p>
+            <p class="item__title">Encadrement de stage de fin de formation
+              <span class="item__meta">(Freelance, 2022)</span>
+            </p>
+            <p class="item__subtitle">Access Code School
+              <span class="item__meta">(Nevers, France)</span>
+            </p>
           </div>
           <ul class="item__tasks">
-            <li>Développement d'une application web se servant de l'API MediaPipe pour la détection automatique des points clés du visage et du corps</li>
+            <li>Développement d'une application web se servant de
+              <a class="item__work link__highlight" href="https://developers.google.com/edge/mediapipe/solutions/guide">l'API MediaPipe</a>
+              pour la détection automatique des points clés du visage et du corps
+              <span class="item__context">Stagiaire : <span class="item__highlight">Daniel Blanluet</span></span>
+            </li>
           </ul>
         </li>
 
         <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Développeur full stack <span class="item__meta">(CDD, 2021-2022)</span></p>
-            <p class="item__subtitle">DAVI The Humanizers (Nevers, France)</p>
+            <p class="item__title">Développeur full stack
+              <span class="item__meta">(CDD, 2021-2022)</span>
+            </p>
+            <p class="item__subtitle">DAVI The Humanizers
+              <span class="item__meta">(Nevers, France)</span>
+            </p>
           </div>
           <ul class="item__tasks">
             <li>Développement : API (Neo4j, PHP Vanilla), CMS (Symfony), plugins WordPress personnalisés (PHP natif, JS Vanilla)</li>
-            <li>Formation de stagiaires (Access Code School, CS2i de Nevers)</li>
+            <li>Formation de stagiaires (Access Code School et CS2i de Nevers)</li>
           </ul>
         </li>
 
         <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Professeur de musique assistée par ordinateur <span class="item__meta">(Freelance, 2019-2020)</span></p>
-            <p class="item__subtitle">Le Petit Conservatoire (Nevers, France)</p>
-          </div>
-          <p class="item__description">Cours individuels d'initiation à la MAO (Reaper, Ableton Live, Pure Data)</p>
-        </li>
-
-        <li class="jobs__item">
-          <div class="item__header">
-            <p class="item__title">Animateur et support technique <span class="item__meta">(Freelance, 2019)</span></p>
-            <p class="item__subtitle">Ircam (Paris, France)</p>
+            <p class="item__title">Professeur de musique assistée par ordinateur
+              <span class="item__meta">(Freelance, 2019-2020)</span>
+            </p>
+            <p class="item__subtitle">Le Petit Conservatoire
+              <span class="item__meta">(Nevers, France)</span>
+            </p>
           </div>
           <ul class="item__tasks">
-            <li>Démonstration d'applications pour les synthèses sonores de type modèle physique et concaténative par corpus, réalisées en Max par les équipes de recherche S3AM et ISMM</li>
+            <li>Cours individuels d'initiation à la MAO (Reaper, Ableton Live, Pure Data)</li>
           </ul>
         </li>
 
         <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Assistant d'enseignement <span class="item__meta">(Freelance, 2014-2015)</span></p>
-            <p class="item__subtitle">Universidad de Chile (Santiago, Chili)</p>
+            <p class="item__title">Animateur et support technique
+              <span class="item__meta">(Freelance, 2019)</span>
+            </p>
+            <p class="item__subtitle">Ircam
+              <span class="item__meta">(Paris, France)</span>
+            </p>
           </div>
-          <p class="item__description">Cours individuels de composition instrumentale pour les étudiants de la Licence en composition musicale</p>
+          <ul class="item__tasks">
+            <li>Démonstration d'applications pour les synthèses sonores de type modèle physique et concaténative par corpus,
+              réalisées en Max par les équipes de recherche <a class="item__work link__highlight" href="https://s3am.ircam.fr">S3AM</a>
+              et <a class="item__work link__highlight" href="https://ircam-ismm.github.io">ISMM</a>
+            </li>
+          </ul>
         </li>
 
-      </ul>
-    </section>
-
-    <!-- ===================== STAGES ===================== -->
-    <section class="cv__internships">
-      <h2 class="cv__section-title">Stages</h2>
-      <ul class="internships__list">
-        <li class="internships__item">
+        <li class="jobs__item">
           <div class="item__header">
-            <p class="item__title">Concepteur d'interaction son-mouvement <span class="item__meta">(2014-2015)</span></p>
-            <p class="item__subtitle">Universidad de Chile (Santiago, Chili)</p>
+            <p class="item__title">Assistant d'enseignement
+              <span class="item__meta">(Freelance, 2014-2015)</span>
+            </p>
+            <p class="item__subtitle">Universidad de Chile
+              <span class="item__meta">(Santiago, Chili)</span>
+            </p>
           </div>
-          <p class="item__description">Projet de recherche-création <em>Emovere: Cuerpo, Sonido y Movimiento</em>, sous la direction de Javier Jaimovich</p>
+          <ul class="item__tasks">
+            <li>Cours individuels de composition instrumentale pour les étudiants de la Licence en composition musicale</li>
+          </ul>
         </li>
+
       </ul>
     </section>
 
     <!-- ===================== PRIX, RÉSIDENCES ET COMMUNICATIONS ===================== -->
     <section class="cv__awards">
-      <h2 class="cv__section-title">Prix, résidences et communications</h2>
+      <h2 class="cv__section-title item__highlight">Prix, résidences et communications</h2>
 
       <div class="awards__group">
         <h3 class="awards__group-title">Résidences</h3>
         <ul class="awards__list">
-          <li class="awards__item">Centre Chorégraphique de la Ville de Strasbourg (France, 2022) — Réalisateur en arts numériques en résidence avec Dr. Vivian Fritz</li>
-          <li class="awards__item">Cité internationale des arts (Paris, 2015, 2018-2019) — Compositeur en résidence</li>
+          <li class="awards__item">Centre Chorégraphique de la Ville de Strasbourg
+            <span class="item__meta">(France, 2022) —</span> Réalisateur en arts numériques en résidence avec
+            <span class="item__highlight">Dr. Vivian Fritz</span>
+          </li>
+          <li class="awards__item">Cité internationale des arts
+            <span class="item__meta">(Paris, 2015, 2018-2019) —</span> Compositeur en résidence
+          </li>
         </ul>
       </div>
 
       <div class="awards__group">
-        <h3 class="awards__group-title">Séminaire et ateliers</h3>
+        <h3 class="awards__group-title">Séminaires et ateliers</h3>
         <ul class="awards__list">
-          <li class="awards__item">Comprendre les bases de données orientées graphe avec Neo4j (Nevers, 2021), Access Code School</li>
-          <li class="awards__item">Suis-je un compositeur polymorphe ? (Strasbourg, 2019), Université de Strasbourg</li>
+          <li class="awards__item">
+            <span class="item__work">Comprendre les bases de données orientées graphe avec Neo4j</span>
+            <span class="item__meta">(Nevers, 2021),</span> Access Code School
+          </li>
+          <li class="awards__item">
+            <span class="item__work">Suis-je un compositeur polymorphe ?</span>
+            <span class="item__meta">(Strasbourg, 2019).</span>
+            <span class="item__context">Pratiques polymorphes : musique, image, danse, installation, théâtre, geste
+              <span class="item__meta">—</span> Université de Strasbourg</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="awards__group">
+        <h3 class="awards__group-title">Conférences</h3>
+        <ul class="awards__list">
+          <li class="awards__item">
+            <span class="item__work">Design and application of a motion capture system for piano in music composition</span>
+            <span class="item__meta">(Porto, Portugal, 2016).</span>
+            <span class="item__context">Porto International Conference on Musical Gesture as Creative Interface
+              <span class="item__meta">—</span> Universidade Católica Portuguesa</span>
+          </li>
         </ul>
       </div>
 
@@ -214,24 +296,75 @@
         <h3 class="awards__group-title">Distinctions</h3>
         <ul class="awards__list">
           <li class="awards__item">
-            <span class="awards__item-title">École d'Études Supérieures de l'Universidad de Chile (Paris, 2015)</span>
-            <p class="item__description">Stage de recherche avec Luis Naón et Tom Mays au Conservatoire national supérieur de musique et de danse de Paris</p>
+            <span class="awards__item-title">École d'Études Supérieures de l'Universidad de Chile
+              <span class="item__meta">(Paris, 2015)</span>
+            </span>
+            <ul class="awards__sublist">
+              <li>Stage de recherche avec <span class="item__highlight">Luis Naón</span> et <span class="item__highlight">Tom Mays</span>
+                <span class="item__meta">—</span> Conservatoire national supérieur de musique et de danse de Paris
+              </li>
+            </ul>
           </li>
           <li class="awards__item">
-            <span class="awards__item-title">UNESCO-Aschberg Bursaries for Latin-american artists (Virginie, États-Unis, 2014)</span>
+            <span class="awards__item-title">UNESCO-Aschberg Bursaries for Latin-american artists
+              <span class="item__meta">(Virginie, États-Unis, 2014)</span>
+            </span>
             <ul class="awards__sublist">
-              <li>Stage de recherche avec Eric Lyon et Charles Nichols à l'Institute for Creativity, Arts and Technology (ICAT)</li>
-              <li>Compositeur en résidence au Virginia Center for the Creative Arts (VCCA)</li>
+              <li>Stage de recherche avec <span class="item__highlight">Eric Lyon</span> et <span class="item__highlight">Charles Nichols</span>
+                <span class="item__meta">—</span> Institute for Creativity, Arts and Technology (ICAT)
+              </li>
+              <li>Compositeur en résidence <span class="item__meta">—</span> Virginia Center for the Creative Arts (VCCA)</li>
             </ul>
           </li>
         </ul>
       </div>
+    </section>
 
-      <div class="awards__group">
-        <p class="awards__conference">Conférence <em>Design and application of a motion capture system for piano in music composition</em> (Porto, Portugal, 2016)</p>
-        <p class="item__description">Porto International Conference on Musical Gesture as Creative Interface, Universidade Católica Portuguesa</p>
-      </div>
-
+    <!-- ===================== COMPÉTENCES ===================== -->
+    <section class="cv__skills">
+      <h2 class="cv__section-title item__highlight">Compétences</h2>
+      <ul class="skills__list">
+        <li class="skills__item">
+          <span class="skills__category">Langages et frameworks :</span>
+          <span class="skills__values">PHP/Symfony, JavaScript, Go,
+            Python<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">MAO :</span>
+          <span class="skills__values">Max, Pure Data,
+            SuperCollider<sup class="skills__level skills__level--learning">**</sup>,
+            OpenMusic<sup class="skills__level skills__level--notions">*</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">DAWs :</span>
+          <span class="skills__values">Reaper, Ableton Live,
+            Pro Tools<sup class="skills__level skills__level--notions">*</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Prototypage physique et interaction :</span>
+          <span class="skills__values">
+            Arduino<sup class="skills__level skills__level--learning">**</sup>,
+            Raspberry Pi<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Outils :</span>
+          <span class="skills__values">Git,
+            Claude Code<sup class="skills__level skills__level--learning">**</sup>
+          </span>
+        </li>
+        <li class="skills__item">
+          <span class="skills__category">Langues :</span>
+          <span class="skills__values">Espagnol (natif), Français (bilingue), Anglais (TOEFL iBT MyBest Scores : 92)</span>
+        </li>
+      </ul>
+      <p class="skills__legend">
+        <sup class="skills__level skills__level--notions">*</sup> notions &nbsp;
+        <sup class="skills__level skills__level--learning">**</sup> en apprentissage
+      </p>
     </section>
 
   </main>
