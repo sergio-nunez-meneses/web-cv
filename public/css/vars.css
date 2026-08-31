@@ -1,0 +1,41 @@
+/* === Variables ============================================== */
+:root {
+  /* Typographie */
+  --font-heading: 'Lato', Georgia, 'Times New Roman', serif;
+  --font-body:    'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  /* Graisses Lato */
+  --fw-thin:   100;
+  --fw-light:  300;
+  --fw-normal: 400;
+  --fw-bold:   700;
+  --fw-black:  900;
+
+  /* Tailles de police */
+  --fs-name:     1.3rem;
+  --fs-section:  0.78rem;
+  --fs-body:     0.75rem;
+  --fs-small:    0.68rem;
+
+  /* Espacement */
+  --sp-xs:  0.2rem;
+  --sp-sm:  0.4rem;
+  --sp-md:  0.75rem;
+  --sp-lg:  1.1rem;
+  --sp-xl:  1.6rem;
+
+  /* Espacements des listes */
+  --gap-skills-items: var(--sp-xs);
+  --gap-degree-items: var(--sp-xs);
+  --gap-job-items:    var(--sp-xs);
+  --gap-award-groups: var(--sp-sm);
+
+  /* Page */
+  --page-width:    210mm; /* 49.606rem, 793.701px */
+  --page-height:   297mm; /* 70.157rem, 1122.52px */
+  --page-pad-v:    14mm; /* 3.307rem, 52.913px */
+  --page-pad-h:    18mm; /* 4.252rem, 68.031px */
+
+  /* Photo */
+  --photo-size: 120px;
+}

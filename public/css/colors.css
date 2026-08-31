@@ -1,0 +1,13 @@
+/* === Couleurs — palette actuelle (noir/blanc) =============== */
+:root {
+  --color-page-bg:        #f0ece0;
+  --color-cv-bg:          rgba(255, 255, 255, 0.5);
+  --color-section-title:  #faff00;
+  --color-text:           #1a1a1a;
+  --color-text-secondary: #444444;
+  --color-text-meta:      #666666;
+  --color-border:         #cccccc;
+  --color-link:           #1a1a1a;
+  --color-link-hover:     #555555;
+  --color-link-highlight: rgba(148, 0, 255, 0.5);
+}

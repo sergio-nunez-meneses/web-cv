@@ -3,99 +3,10 @@
    Style minimaliste A4, noir/blanc
    ============================================================ */
 
-/* === 0. Polices locales ===================================== */
-@font-face {
-  font-family:  'Lato';
-  font-style:   normal;
-  font-weight:  100;
-  font-display: swap;
-  src:          url('../fonts/lato-100.woff2') format('woff2');
-}
-
-@font-face {
-  font-family:  'Lato';
-  font-style:   normal;
-  font-weight:  300;
-  font-display: swap;
-  src:          url('../fonts/lato-300.woff2') format('woff2');
-}
-
-@font-face {
-  font-family:  'Lato';
-  font-style:   normal;
-  font-weight:  400;
-  font-display: swap;
-  src:          url('../fonts/lato-400.woff2') format('woff2');
-}
-
-@font-face {
-  font-family:  'Lato';
-  font-style:   normal;
-  font-weight:  700;
-  font-display: swap;
-  src:          url('../fonts/lato-700.woff2') format('woff2');
-}
-
-@font-face {
-  font-family:  'Lato';
-  font-style:   normal;
-  font-weight:  900;
-  font-display: swap;
-  src:          url('../fonts/lato-900.woff2') format('woff2');
-}
-
-/* === 1. Variables =========================================== */
-:root {
-  /* Couleurs */
-  --color-page-bg:        #d8d8d8;
-  --color-cv-bg:          #ffffff;
-  --color-text:           #1a1a1a;
-  --color-text-secondary: #444444;
-  --color-text-meta:      #666666;
-  --color-border:         #cccccc;
-  --color-section-line:   #1a1a1a;
-  --color-link:           #1a1a1a;
-  --color-link-hover:     #555555;
-
-  /* Typographie */
-  --font-heading: 'Lato', Georgia, 'Times New Roman', serif;
-  --font-body:    'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
-  /* Graisses Lato */
-  --fw-thin:   100;
-  --fw-light:  300;
-  --fw-normal: 400;
-  --fw-bold:   700;
-  --fw-black:  900;
-
-  /* Tailles de police */
-  --fs-name:     1.3rem;
-  --fs-section:  0.78rem;
-  --fs-body:     0.75rem;
-  --fs-small:    0.68rem;
-
-  /* Espacement */
-  --sp-xs:  0.2rem;
-  --sp-sm:  0.4rem;
-  --sp-md:  0.75rem;
-  --sp-lg:  1.1rem;
-  --sp-xl:  1.6rem;
-
-  /* Espacements des listes */
-  --gap-skills-items: var(--sp-xs);
-  --gap-degree-items: var(--sp-xs);
-  --gap-job-items:    var(--sp-xs);
-  --gap-award-groups: var(--sp-sm);
-
-  /* Page */
-  --page-width:    210mm; /* 49.606rem, 793.701px */
-  --page-height:   297mm; /* 70.157rem, 1122.52px */
-  --page-pad-v:    14mm; /* 3.307rem, 52.913px */
-  --page-pad-h:    18mm; /* 4.252rem, 68.031px */
-
-  /* Photo */
-  --photo-size: 120px;
-}
+/* === 1. Imports ============================================= */
+@import "fonts.css";
+@import "colors.css";
+@import "vars.css";
 
 /* === 2. Reset & base ======================================== */
 *, *::before, *::after {
@@ -110,6 +21,10 @@ html {
 
 body {
   background-color: var(--color-page-bg);
+  background-image:
+    linear-gradient(rgba(160, 140, 100, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 140, 100, 0.15) 1px, transparent 1px);
+  background-size:  20px 20px;
   font-family:      var(--font-body);
   color:            var(--color-text);
   padding:          2rem;
@@ -128,15 +43,103 @@ a {
 }
 
 a:hover {
-  color:           var(--color-link-hover);
-  text-decoration: underline;
+  color:  var(--color-link-hover);
+  cursor: pointer;
 }
 
 address {
   font-style: normal;
 }
 
-/* === 3. Conteneur page CV =================================== */
+/* === 3. Titre de section partagé ============================ */
+.cv__section-title {
+  font-family:         var(--font-heading);
+  font-size:           var(--fs-section);
+  font-weight:         var(--fw-black);
+  text-transform:      uppercase;
+  letter-spacing:      0.05em;
+  padding-bottom:      var(--sp-xs);
+  margin-bottom:       var(--sp-md);
+  color:               var(--color-text);
+}
+
+/* === 4. Styles partagés d'éléments ========================== */
+.item__title {
+  font-weight:   var(--fw-bold);
+  font-size:     var(--fs-body);
+}
+
+.item__meta {
+  font-weight: var(--fw-light);
+  font-size:   var(--fs-small);
+  color:       var(--color-text-meta);
+}
+
+.item__subtitle {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-secondary);
+  text-align:    justify;
+  margin-bottom: var(--sp-xs);
+}
+
+.item__description {
+  font-style:  italic;
+  font-size:   var(--fs-small);
+  color:       var(--color-text-secondary);
+  margin-top:  var(--sp-xs);
+}
+
+.item__tasks {
+  list-style:  "– ";
+  margin-left: var(--sp-md);
+  margin-top:  var(--sp-xs);
+}
+
+.item__tasks li::marker {
+  color: var(--color-border);
+}
+
+.item__tasks li {
+  font-size:     var(--fs-small);
+  color:         var(--color-text-secondary);
+  text-align:    justify;
+  margin-bottom: var(--sp-xs);
+  line-height:   1.4;
+}
+
+.item__work {
+  font-style:  italic;
+  color:       var(--color-text-secondary);
+}
+
+.item__context {
+  display: block;
+}
+
+.item__highlight {
+  width:               fit-content;
+  background-image:    linear-gradient(to top, var(--color-section-title), transparent);
+  background-size:     100% 9px;
+  background-position: 0 100%;
+  background-repeat:   no-repeat;
+}
+
+.link__highlight {
+  width:               fit-content;
+  background-image:    linear-gradient(to top, var(--color-link-highlight), rgba(148, 0, 255, 0));
+  background-size:     100% 5px;
+  background-position: 0 100%;
+  background-repeat:   no-repeat;
+}
+
+.cv__profession.item__highlight,
+.internships__item .item__highlight,
+.jobs__item .item__highlight,
+.awards__item .item__highlight {
+  background-size:     100% 5px;
+}
+
+/* === 5. Conteneur page CV =================================== */
 .cv {
   background-color:      var(--color-cv-bg);
   width:                 var(--page-width);
@@ -164,20 +167,7 @@ address {
 .cv__awards      { grid-area: awards; }
 .cv__skills      { grid-area: skills; }
 
-/* === 4. Titre de section partagé ================================ */
-.cv__section-title {
-  font-family:     var(--font-heading);
-  font-size:       var(--fs-section);
-  font-weight:     var(--fw-black);
-  text-transform:  uppercase;
-  letter-spacing:  0.05em;
-  border-bottom:   1px solid var(--color-section-line);
-  padding-bottom:  var(--sp-xs);
-  margin-bottom:   var(--sp-md);
-  color:           var(--color-text);
-}
-
-/* === 5. En-tête ============================================== */
+/* === 6. En-tête ============================================= */
 .cv__header {
   align-self: start;
 }
@@ -245,7 +235,7 @@ address {
   flex-shrink:    0;
 }
 
-/* === 6. Parcours universitaire =================================== */
+/* === 7. Parcours universitaire ============================== */
 .cv__degrees,
 .cv__training {
   align-self: start;
@@ -263,74 +253,21 @@ address {
   margin-left: var(--sp-md);
 }
 
-/* === 7. Styles partagés d'éléments ================================== */
-.item__title {
-  font-weight:   var(--fw-bold);
-  font-size:     var(--fs-body);
-}
-
-.item__meta {
-  font-weight: var(--fw-light);
-  font-size:   var(--fs-small);
-  color:       var(--color-text-meta);
-}
-
-.item__subtitle {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-secondary);
-  text-align:    justify;
-  margin-bottom: var(--sp-xs);
-}
-
-.item__description {
-  font-style:  italic;
-  font-size:   var(--fs-small);
-  color:       var(--color-text-secondary);
-  margin-top:  var(--sp-xs);
-}
-
-.item__tasks {
-  list-style:  "– ";
-  margin-left: var(--sp-md);
-  margin-top:  var(--sp-xs);
-}
-
-.item__tasks li::marker {
-  color: var(--color-border);
-}
-
-.item__tasks li {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-secondary);
-  text-align:    justify;
-  margin-bottom: var(--sp-xs);
-  line-height:   1.4;
-}
-
-.item__work {
-  font-style:  italic;
-  color:       var(--color-text-secondary);
-}
-
-.item__context {
-  display: block;
-}
-
-/* === 8. Emplois ================================================ */
+/* === 8. Emplois ============================================= */
 .jobs__list {
   display:        flex;
   flex-direction: column;
   gap:            var(--gap-job-items);
 }
 
-/* === 9. Stages ========================================= */
+/* === 9. Stages ============================================== */
 .internships__list {
   display:        flex;
   flex-direction: column;
   gap:            var(--sp-md);
 }
 
-/* === 10. Distinctions ============================================= */
+/* === 10. Distinctions ======================================= */
 .cv__awards {
   display:        flex;
   flex-direction: column;
@@ -393,13 +330,7 @@ address {
   line-height: 1.4;
 }
 
-.awards__conference {
-  font-size:   var(--fs-small);
-  color:       var(--color-text);
-  line-height: 1.4;
-}
-
-/* === 11. Compétences ============================================= */
+/* === 11. Compétences ======================================== */
 .cv__skills {
   display:        flex;
   flex-direction: column;
@@ -448,7 +379,7 @@ address {
   margin-right: -0.1rem;
 }
 
-/* === 12. Impression ============================================== */
+/* === 12. Impression ========================================= */
 @media print {
   body {
     background: white;
@@ -474,7 +405,7 @@ address {
   }
 }
 
-/* === 13. Design responsive ======================================== */
+/* === 13. Design responsive ================================== */
 @media (min-width: 768px) and (max-width: 820px) {
   .training__list .item__subtitle {
     text-align: unset;
