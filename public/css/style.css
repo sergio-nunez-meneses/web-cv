@@ -312,6 +312,10 @@ address {
   color:       var(--color-text-secondary);
 }
 
+.item__context {
+  display: block;
+}
+
 /* === 8. Emplois ================================================ */
 .jobs__list {
   display:        flex;
