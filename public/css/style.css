@@ -131,7 +131,8 @@ address {
 .cv__profession.item__highlight,
 .internships__item .item__highlight,
 .jobs__item .item__highlight,
-.awards__item .item__highlight {
+.awards__item .item__highlight,
+.cv__signature.item__highlight {
   background-size:     100% 5px;
 }
 
@@ -154,7 +155,8 @@ address {
     "training internships"
     "jobs     jobs"
     "awards   awards"
-    "skills   skills";
+    "skills   skills"
+    "footer   footer";
   column-gap:            var(--sp-xl);
   row-gap:               var(--sp-lg);
 }
@@ -166,6 +168,7 @@ address {
 .cv__jobs        { grid-area: jobs; }
 .cv__awards      { grid-area: awards; }
 .cv__skills      { grid-area: skills; }
+.cv__footer      { grid-area: footer; }
 
 /* === 6. En-tête ============================================= */
 .cv__header {
@@ -379,7 +382,21 @@ address {
   margin-right: -0.1rem;
 }
 
-/* === 12. Impression ========================================= */
+/* === 12. Pied de page ======================================= */
+.cv__footer {
+  display: flex;
+  justify-content: end;
+  margin-top: var(--sp-lg);
+}
+
+.cv__signature {
+  font-family: var(--font-signature);
+  font-size:   var(--fs-section);
+  font-weight: var(--fw-normal);
+  color:       var(--color-text-meta);
+}
+
+/* === 13. Impression ========================================= */
 @media print {
   body {
     background: white;
@@ -405,7 +422,7 @@ address {
   }
 }
 
-/* === 13. Design responsive ================================== */
+/* === 14. Design responsive ================================== */
 @media (min-width: 768px) and (max-width: 820px) {
   .training__list .item__subtitle {
     text-align: unset;
@@ -427,7 +444,8 @@ address {
       "internships internships"
       "jobs        jobs"
       "awards      awards"
-      "skills      skills";
+      "skills      skills"
+      "footer      footer";
     /*
       * valeurs verticales :
       * - deux points : (600, 36.912px) et (768, 52.913px)
@@ -456,7 +474,8 @@ address {
       "internships"
       "jobs"
       "awards"
-      "skills";
+      "skills"
+      "footer";
     padding: 1rem;
   }
 
@@ -495,7 +514,8 @@ address {
       "internships internships"
       "jobs        jobs"
       "awards      awards"
-      "skills      skills";
+      "skills      skills"
+      "footer      footer";
   }
 
   .cv__personal {
