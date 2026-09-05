@@ -1,5 +1,13 @@
 /* === Polices locales ======================================== */
 @font-face {
+  font-family:  'Bad Script';
+  font-style:   normal;
+  font-weight:  400;
+  font-display: swap;
+  src:          url('../fonts/bad-script-400.woff2') format('woff2');
+}
+
+@font-face {
   font-family:  'Lato';
   font-style:   normal;
   font-weight:  100;

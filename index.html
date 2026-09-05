@@ -10,7 +10,7 @@
   <meta property="og:description" content="Compositeur et développeur full stack.">
   <meta property="og:type" content="website">
   <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="public/css/style.css">
+<link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
   <main class="cv">
@@ -50,6 +50,7 @@
         </div>
       </div>
     </header>
+    <div class="cv__header-sentinel" aria-hidden="true"></div>
 
     <!-- ===================== DIPLÔMES ===================== -->
     <section class="cv__degrees">
@@ -139,7 +140,10 @@
             <li>Projet de recherche-création
               <a class="item__work link__highlight" href="https://emovere.cl/emovere-cuerpo-sonido-y-movimiento/">
                 Emovere: Cuerpo, Sonido y Movimiento
-              </a>, sous la direction de <span class="item__highlight">Dr. Javier Jaimovich</span>
+              </a>, sous la direction de <a class="link__highlight" href="https://javier.jaimovich.cl">Dr. Javier Jaimovich</a> et
+              <a class="link__highlight" href="https://portafolio-academico.uchile.cl/perfil/14130-Maria-Francisca-Morand-Garcia--Huidobro">
+                Francisca Morand
+              </a>
             </li>
           </ul>
         </li>
@@ -256,7 +260,7 @@
         <ul class="awards__list">
           <li class="awards__item">Centre Chorégraphique de la Ville de Strasbourg
             <span class="item__meta">(France, 2022) —</span> Réalisateur en arts numériques en résidence avec
-            <span class="item__highlight">Dr. Vivian Fritz</span>
+            <a class="link__highlight" href="https://vivianfritzroa.com">Dr. Vivian Fritz</a>
           </li>
           <li class="awards__item">Cité internationale des arts
             <span class="item__meta">(Paris, 2015, 2018-2019) —</span> Compositeur en résidence
@@ -300,7 +304,8 @@
               <span class="item__meta">(Paris, 2015)</span>
             </span>
             <ul class="awards__sublist">
-              <li>Stage de recherche avec <span class="item__highlight">Luis Naón</span> et <span class="item__highlight">Tom Mays</span>
+              <li>Stage de recherche avec <a class="link__highlight" href="https://luisnaon.com">Luis Naón</a> et
+                <a class="link__highlight" href="http://tmays.free.fr/fr/fbio.html">Tom Mays</a>
                 <span class="item__meta">—</span> Conservatoire national supérieur de musique et de danse de Paris
               </li>
             </ul>
@@ -310,7 +315,8 @@
               <span class="item__meta">(Virginie, États-Unis, 2014)</span>
             </span>
             <ul class="awards__sublist">
-              <li>Stage de recherche avec <span class="item__highlight">Eric Lyon</span> et <span class="item__highlight">Charles Nichols</span>
+              <li>Stage de recherche avec <a class="link__highlight" href="https://experts.vt.edu/3168-eric-lyon">Eric Lyon</a>
+                et <a class="link__highlight" href="https://experts.vt.edu/3158-charles-nichols">Charles Nichols</a>
                 <span class="item__meta">—</span> Institute for Creativity, Arts and Technology (ICAT)
               </li>
               <li>Compositeur en résidence <span class="item__meta">—</span> Virginia Center for the Creative Arts (VCCA)</li>
@@ -367,6 +373,11 @@
       </p>
     </section>
 
+    <footer class="cv__footer">
+      <p class="cv__signature item__highlight">Réalisé par Sergio Núñez Meneses — <span class="cv__year"></span></p>
+    </footer>
+
   </main>
+  <script src="public/js/script.js"></script>
 </body>
 </html>
