@@ -15,13 +15,16 @@ index.html              — document unique, tout le CV
 public/
   css/
     style.css           — feuille principale (imports + tous les styles)
-    fonts.css           — @font-face Lato (100, 300, 400, 700, 900)
-    vars.css            — variables typo, espacement, page, photo
+    fonts.css           — @font-face Bad Script (400) + Lato (100, 300, 400, 700, 900)
+    vars.css            — variables typo (dont --font-signature), espacement, page, photo
     colors.css          — palette active (noir/blanc chaud)
-  fonts/                — fichiers .woff2 Lato (auto-hébergés)
+  fonts/                — fichiers .woff2 auto-hébergés (Lato + Bad Script)
+    bad-script-400.woff2
   img/
     profile.jpg         — photo de profil (versionnée)
     photo.png           — ancienne photo (non versionnée, .gitignore)
+  js/
+    script.js           — initYear() + initStickyHeader()
   favicon.svg           — favicon <♪> (fond noir, texte blanc)
 ```
 
@@ -37,14 +40,15 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 3.  Titre de section partagé (.cv__section-title)
 4.  Styles partagés d'éléments (.item__*)
 5.  Conteneur page CV (.cv — grille principale)
-6.  En-tête (.cv__header)
+6.  En-tête (.cv__header, .cv__header-sentinel, .cv__header--sticky)
 7.  Parcours universitaire (.cv__degrees, .cv__training)
 8.  Emplois (.cv__jobs)
 9.  Stages (.cv__internships)
 10. Distinctions (.cv__awards)
 11. Compétences (.cv__skills)
-12. Impression (@media print)
-13. Design responsive (breakpoints : 376, 420, 576, 600, 768, 820px)
+12. Pied de page (.cv__footer, .cv__signature)
+13. Impression (@media print)
+14. Design responsive (breakpoints : 376, 420, 480, 576, 600, 768, 820px)
 ```
 
 ### Classes d'effet visuel
@@ -61,9 +65,14 @@ grid-template-areas:
   "training internships"
   "jobs     jobs"
   "awards   awards"
-  "skills   skills";
+  "skills   skills"
+  "footer   footer";
 grid-template-columns: 1fr 0.8fr;
 ```
+
+### Sentinel header
+
+`.cv__header-sentinel` occupe `grid-area: header` avec `align-self: end; height: 0`. Il reste dans le flux lorsque `.cv__header` passe en `position: fixed`, ce qui permet à `sentinel.offsetTop` de servir de seuil de scroll stable sans recalcul.
 
 ---
 
@@ -104,7 +113,7 @@ Description :
 
 - Ne pas consulter les liens ni leurs contenus (données personnelles)
 - `public/img/` : seul `profile.jpg` est versionné (`public/img/*` + `!public/img/profile.jpg` dans `.gitignore`)
-- `@media print` devrait être la **dernière règle** de `style.css` (à tester)
+- `@media print` est la section 13 de `style.css` ; la section 14 (Design responsive) la suit — à réorganiser si nécessaire
 
 ---
 
@@ -125,6 +134,4 @@ Note : `print-color-adjust: exact` n'est pas supporté avant Firefox 97 → coul
 ### Futures améliorations
 
 1. **Impression / export PDF** — affiner `@media print` ou ajouter un bouton d'export JS (`window.print()`)
-2. **Footer** — "Réalisé par Sergio Núñez Meneses" + année, coin bas droit de `.cv`, police style signature moderne
-3. **Header sticky** — l'élément `header` devient sticky au scroll ; breakpoints : `> 768px` (à partir de `training`/`internships`), `576–768px` (à partir de `training`), `< 576px` (à partir de `degrees`) ; mise en forme : `cv__name` + `cv__contact` sur une ligne, `cv__profession item__highlight` dessous
-4. **`@page` print** — tester `size: A4; margin: 0` avec `padding` sur `.cv` pour tenir sur 1 page
+2. **`@page` print** — tester `size: A4; margin: 0` avec `padding` sur `.cv` pour tenir sur 1 page
