@@ -238,6 +238,57 @@ address {
   flex-shrink:    0;
 }
 
+/* Sentinel — marqueur invisible en bas de la zone header ----- */
+.cv__header-sentinel {
+  grid-area:      header;
+  align-self:     end;
+  height:         0;
+  pointer-events: none;
+}
+
+/* En-tête sticky -------------------------------------------- */
+.cv__header--sticky {
+  position: fixed;
+  top:      0;
+  z-index:  100;
+  background-color: rgb(255, 255, 255);
+  padding:          var(--sp-sm) var(--page-pad-h);
+  box-shadow:       0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.cv__header--sticky .cv__photo-wrapper {
+  display: none;
+}
+
+.cv__header--sticky .cv__personal {
+  flex-direction: row;
+}
+
+.cv__header--sticky .cv__identity {
+  display:               grid;
+  grid-template-areas:   "name contact" "profession .";
+  grid-template-columns: auto 1fr;
+  align-items:           center;
+  width:                 100%;
+  gap:                   0 var(--sp-md);
+}
+
+.cv__header--sticky .cv__name {
+  grid-area:     name;
+  margin-bottom: 0;
+  font-size:     var(--fs-body);
+}
+
+.cv__header--sticky .cv__profession {
+  grid-area:     profession;
+  margin-bottom: 0;
+}
+
+.cv__header--sticky .cv__contact {
+  grid-area:       contact;
+  justify-content: flex-end;
+}
+
 /* === 7. Parcours universitaire ============================== */
 .cv__degrees,
 .cv__training {
@@ -541,6 +592,20 @@ address {
     */
     padding: clamp(1rem, calc(-32.804px + 11.62vw), 36.912px)
              clamp(1rem, calc(-68.084px + 20vw), 52.032px);
+  }
+}
+
+@media (max-width: 480px) {
+  .cv__header--sticky .cv__identity {
+    grid-template-areas:
+      "name       name"
+      "profession profession"
+      "contact    contact";
+  }
+
+  .cv__header--sticky .cv__contact {
+    justify-content: flex-start;
+    margin:          0.25rem 0;
   }
 }
 
