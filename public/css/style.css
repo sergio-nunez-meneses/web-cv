@@ -131,7 +131,7 @@ address {
 .cv__profession.item__highlight,
 .internships__item .item__highlight,
 .jobs__item .item__highlight,
-.awards__item .item__highlight,
+.communications__item .item__highlight,
 .cv__signature.item__highlight {
   background-size:     100% 5px;
 }
@@ -151,25 +151,25 @@ address {
   display:               grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "header       header"
-    "degrees      training"
-    "internships  internships"
-    "jobs         jobs"
-    "awards       awards"
-    "skills       skills"
-    "footer       footer";
+    "header         header"
+    "degrees        training"
+    "internships    internships"
+    "jobs           jobs"
+    "communications communications"
+    "skills         skills"
+    "footer         footer";
   column-gap:            var(--sp-xl);
   row-gap:               var(--sp-lg);
 }
 
-.cv__header       { grid-area: header; }
-.cv__degrees      { grid-area: degrees; }
-.cv__training     { grid-area: training; }
-.cv__internships  { grid-area: internships; }
-.cv__jobs         { grid-area: jobs; }
-.cv__awards       { grid-area: awards; }
-.cv__skills       { grid-area: skills; }
-.cv__footer       { grid-area: footer; }
+.cv__header         { grid-area: header; }
+.cv__degrees        { grid-area: degrees; }
+.cv__training       { grid-area: training; }
+.cv__internships    { grid-area: internships; }
+.cv__jobs           { grid-area: jobs; }
+.cv__communications { grid-area: communications; }
+.cv__skills         { grid-area: skills; }
+.cv__footer         { grid-area: footer; }
 
 /* === 6. En-tête ============================================= */
 .cv__header {
@@ -334,20 +334,20 @@ address {
 }
 
 /* === 10. Distinctions ======================================= */
-.cv__awards {
+.cv__communications {
   display:        flex;
   flex-direction: column;
 }
 
-.awards__group {
+.communications__group {
   margin-bottom: var(--gap-award-groups);
 }
 
-.awards__group:last-child {
+.communications__group:last-child {
   margin-bottom: 0;
 }
 
-.awards__group-title {
+.communications__group-title {
   font-size:      var(--fs-small);
   font-weight:    var(--fw-bold);
   text-transform: uppercase;
@@ -356,7 +356,7 @@ address {
   margin-bottom:  var(--sp-xs);
 }
 
-.awards__list {
+.communications__list {
   list-style:     "– ";
   margin-left:    var(--sp-md);
   display:        flex;
@@ -364,24 +364,24 @@ address {
   gap:            var(--sp-xs);
 }
 
-.awards__list li::marker,
-.awards__sublist li::marker {
+.communications__list li::marker,
+.communications__sublist li::marker {
   color: var(--color-border);
 }
 
-.awards__item {
+.communications__item {
   font-size:   var(--fs-small);
   color:       var(--color-text-secondary);
   text-align:  justify;
   line-height: 1.4;
 }
 
-.awards__item-title {
+.communications__item-title {
   font-size: var(--fs-small);
   color:     var(--color-text);
 }
 
-.awards__sublist {
+.communications__sublist {
   list-style:     " ";
   margin-left:    var(--sp-md);
   margin-top:     var(--sp-xs);
@@ -390,7 +390,7 @@ address {
   gap:            var(--sp-xs);
 }
 
-.awards__sublist li {
+.communications__sublist li {
   font-size:   var(--fs-small);
   color:       var(--color-text-secondary);
   line-height: 1.4;
@@ -510,13 +510,13 @@ address {
   .cv {
     grid-template-columns: 1fr 1.15fr;
     grid-template-areas:
-      "header      degrees"
-      "training    training"
-      "internships internships"
-      "jobs        jobs"
-      "awards      awards"
-      "skills      skills"
-      "footer      footer";
+      "header         degrees"
+      "training       training"
+      "internships    internships"
+      "jobs           jobs"
+      "communications communications"
+      "skills         skills"
+      "footer         footer";
     /*
       * valeurs verticales :
       * - deux points : (600, 36.912px) et (768, 52.913px)
@@ -549,7 +549,7 @@ address {
       "training"
       "internships"
       "jobs"
-      "awards"
+      "communications"
       "skills"
       "footer";
     padding: 1rem;
@@ -585,14 +585,14 @@ address {
 @media (min-width: 576px) and (max-width: 600px) {
   .cv {
     grid-template-areas:
-      "header      header"
-      "degrees     degrees"
-      "training    training"
-      "internships internships"
-      "jobs        jobs"
-      "awards      awards"
-      "skills      skills"
-      "footer      footer";
+      "header         header"
+      "degrees        degrees"
+      "training       training"
+      "internships    internships"
+      "jobs           jobs"
+      "communications communications"
+      "skills         skills"
+      "footer         footer";
   }
 }
 
@@ -640,7 +640,7 @@ address {
   .skills__list,
   .item__subtitle,
   .item__tasks li,
-  .awards__item {
+  .communications__item {
     text-align: left;
   }
 }
