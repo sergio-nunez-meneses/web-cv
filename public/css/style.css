@@ -149,15 +149,15 @@ address {
   font-size:             var(--fs-body);
   line-height:           1.45;
   display:               grid;
-  grid-template-columns: 1fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "header      degrees"
-    "training    internships"
-    "jobs        jobs"
-    "awards      awards"
-    "publications publications"
-    "skills      skills"
-    "footer      footer";
+    "header       header"
+    "degrees      training"
+    "internships  internships"
+    "jobs         jobs"
+    "awards       awards"
+    "skills       skills"
+    "footer       footer";
   column-gap:            var(--sp-xl);
   row-gap:               var(--sp-lg);
 }
@@ -168,7 +168,6 @@ address {
 .cv__internships  { grid-area: internships; }
 .cv__jobs         { grid-area: jobs; }
 .cv__awards       { grid-area: awards; }
-.cv__publications { grid-area: publications; }
 .cv__skills       { grid-area: skills; }
 .cv__footer       { grid-area: footer; }
 
@@ -179,8 +178,15 @@ address {
 
 .cv__personal {
   display:        flex;
-  flex-direction: column;
-  gap:            var(--sp-md);
+  flex-direction: row;
+  /*
+   * aligne .cv__identity avec le bord gauche de la 2e colonne de .cv
+   * gap = col1 + col_gap − photo
+   *     = container/2 + col_gap/2 − photo
+   *     = 50% + sp_xl/2 − photo
+   * (50% suit la largeur réelle de .cv__personal, même quand .cv rétrécit)
+   */
+  gap: calc(50% + var(--sp-xl) / 2 - var(--photo-size));
 }
 
 .cv__photo-wrapper {
@@ -188,7 +194,6 @@ address {
   height:        var(--photo-size);
   overflow:      hidden;
   border-radius: 50%;
-  flex-shrink:   0;
 }
 
 .cv__photo {
@@ -196,6 +201,10 @@ address {
   height:     100%;
   object-fit: cover;
   display:    block;
+}
+
+.cv__identity {
+  margin: auto 0;
 }
 
 .cv__name {
@@ -294,6 +303,7 @@ address {
 /* === 7. Parcours universitaire ============================== */
 .cv__degrees,
 .cv__training {
+  margin-top: var(--sp-xl);
   align-self: start;
 }
 
@@ -347,7 +357,7 @@ address {
 }
 
 .awards__list {
-  list-style:     "· ";
+  list-style:     "– ";
   margin-left:    var(--sp-md);
   display:        flex;
   flex-direction: column;
@@ -372,7 +382,7 @@ address {
 }
 
 .awards__sublist {
-  list-style:     "· ";
+  list-style:     " ";
   margin-left:    var(--sp-md);
   margin-top:     var(--sp-xs);
   display:        flex;
@@ -386,38 +396,12 @@ address {
   line-height: 1.4;
 }
 
-/* === 11. Publications ======================================= */
-.cv__publications {
-  display:        flex;
-  flex-direction: column;
-}
-
-.publications__list {
-  list-style: none;
-  padding:    0;
-  margin:     0;
-}
-
-.publications__item {
-  display:        flex;
-  flex-direction: column;
-  gap:            var(--sp-xs);
-  font-size:      var(--fs-body);
-}
-
-.publications__title {
-  font-weight: var(--fw-bold);
-  text-align:  justify;
-}
-
+/* === 11. Publications — auteurs ============================= */
 .publications__authors {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-secondary);
-  text-align:    justify;
-}
-
-.publications__book {
-  list-style: none;
+  font-size:  var(--fs-small);
+  color:      var(--color-text-secondary);
+  text-align: justify;
+  font-style: normal;
 }
 
 /* === 12. Compétences ======================================= */
@@ -453,16 +437,16 @@ address {
 
 .skills__level--notions,
 .skills__level--learning {
-  font-weight:   var(--fw-light);
-  color:         var(--color-text-secondary);
+  font-weight: var(--fw-light);
+  color:       var(--color-text-secondary);
 }
 
 .skills__legend {
-  font-size:     var(--fs-small);
-  color:         var(--color-text-meta);
-  border-top:    1px solid var(--color-border);
-  padding-top:   var(--sp-xs);
-  margin-top:    var(--sp-lg);
+  font-size:   var(--fs-small);
+  color:       var(--color-text-meta);
+  border-top:  1px solid var(--color-border);
+  padding-top: var(--sp-xs);
+  margin-top:  var(--sp-lg);
 }
 
 .skills__legend .skills__level {
@@ -471,9 +455,9 @@ address {
 
 /* === 13. Pied de page ======================================= */
 .cv__footer {
-  display: flex;
+  display:         flex;
   justify-content: end;
-  margin-top: var(--sp-lg);
+  margin-top:      var(--sp-lg);
 }
 
 .cv__signature {
@@ -498,9 +482,9 @@ address {
   }
 
   .cv__contact-item::after {
-    content:      attr(title);
-    margin-left:  0.2em;
-    font-size:    var(--fs-small);
+    content:     attr(title);
+    margin-left: 0.2em;
+    font-size:   var(--fs-small);
   }
 
   @page {
@@ -524,16 +508,15 @@ address {
 
 @media (max-width: 768px) {
   .cv {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.15fr;
     grid-template-areas:
-      "header       degrees"
-      "training     training"
-      "internships  internships"
-      "jobs         jobs"
-      "awards       awards"
-      "publications publications"
-      "skills       skills"
-      "footer       footer";
+      "header      degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills"
+      "footer      footer";
     /*
       * valeurs verticales :
       * - deux points : (600, 36.912px) et (768, 52.913px)
@@ -550,6 +533,11 @@ address {
     padding: clamp(36.912px, calc(-20.208px + 9.52vw), var(--page-pad-v))
              clamp(52.032px, calc(-4.968px + 9.52vw), var(--page-pad-h));
   }
+
+  .cv__personal {
+    flex-direction: column;
+    gap:            var(--sp-md);
+  }
 }
 
 @media (max-width: 600px) {
@@ -562,7 +550,6 @@ address {
       "internships"
       "jobs"
       "awards"
-      "publications"
       "skills"
       "footer";
     padding: 1rem;
@@ -577,6 +564,7 @@ address {
     display:         flex;
     flex-direction:  column;
     justify-content: center;
+    margin:          0 auto;
   }
 
   .cv__name {
@@ -596,20 +584,15 @@ address {
 
 @media (min-width: 576px) and (max-width: 600px) {
   .cv {
-    grid-template-columns: 1fr 1.25fr;
     grid-template-areas:
-      "header       degrees"
-      "training     training"
-      "internships  internships"
-      "jobs         jobs"
-      "awards       awards"
-      "publications publications"
-      "skills       skills"
-      "footer       footer";
-  }
-
-  .cv__personal {
-    flex-direction: column;
+      "header      header"
+      "degrees     degrees"
+      "training    training"
+      "internships internships"
+      "jobs        jobs"
+      "awards      awards"
+      "skills      skills"
+      "footer      footer";
   }
 }
 
@@ -650,8 +633,7 @@ address {
 
 @media (max-width: 420px) {
   .cv__photo-wrapper {
-    align-self:  center;
-    flex-shrink: unset;
+    align-self: center;
   }
 
   /* Sections degrees, training, jobs, awards : suppression du texte justifié */
@@ -666,5 +648,9 @@ address {
 @media (max-width: 376px) {
   .cv__photo-wrapper {
     display: none;
+  }
+
+  .cv__identity {
+    margin: auto 0;
   }
 }
