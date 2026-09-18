@@ -44,11 +44,12 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 7.  Parcours universitaire (.cv__degrees, .cv__training)
 8.  Emplois (.cv__jobs)
 9.  Stages (.cv__internships)
-10. Distinctions (.cv__awards)
-11. Compétences (.cv__skills)
-12. Pied de page (.cv__footer, .cv__signature)
-13. Impression (@media print)
-14. Design responsive (breakpoints : 376, 420, 480, 576, 600, 768, 820px)
+10. Résidences et communications (.cv__communications)
+11. Publications — auteurs (.publications__authors, au sein de .cv__communications)
+12. Compétences (.cv__skills)
+13. Pied de page (.cv__footer, .cv__signature)
+14. Impression (@media print)
+15. Design responsive (breakpoints : 376, 420, 480, 576, 600, 768, 820px)
 ```
 
 ### Classes d'effet visuel
@@ -61,13 +62,14 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 
 ```css
 grid-template-areas:
-  "header   degrees"
-  "training internships"
-  "jobs     jobs"
-  "awards   awards"
-  "skills   skills"
-  "footer   footer";
-grid-template-columns: 1fr 0.8fr;
+  "header         header"
+  "degrees        training"
+  "internships    internships"
+  "jobs           jobs"
+  "communications communications"
+  "skills         skills"
+  "footer         footer";
+grid-template-columns: 1fr 1fr;
 ```
 
 ### Sentinel header
@@ -113,7 +115,7 @@ Description :
 
 - Ne pas consulter les liens ni leurs contenus (données personnelles)
 - `public/img/` : seul `profile.jpg` est versionné (`public/img/*` + `!public/img/profile.jpg` dans `.gitignore`)
-- `@media print` est la section 13 de `style.css` ; la section 14 (Design responsive) la suit — à réorganiser si nécessaire
+- `@media print` est la section 14 de `style.css` ; la section 15 (Design responsive) la suit — à réorganiser si nécessaire
 
 ---
 
