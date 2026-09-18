@@ -44,8 +44,8 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 7.  Parcours universitaire (.cv__degrees, .cv__training)
 8.  Emplois (.cv__jobs)
 9.  Stages (.cv__internships)
-10. Distinctions (.cv__awards)
-11. Publications (.cv__publications)
+10. Résidences et communications (.cv__communications)
+11. Publications — auteurs (.publications__authors, au sein de .cv__communications)
 12. Compétences (.cv__skills)
 13. Pied de page (.cv__footer, .cv__signature)
 14. Impression (@media print)
@@ -62,14 +62,14 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 
 ```css
 grid-template-areas:
-  "header       degrees"
-  "training     internships"
-  "jobs         jobs"
-  "awards       awards"
-  "publications publications"
-  "skills       skills"
-  "footer       footer";
-grid-template-columns: 1fr 0.8fr;
+  "header         header"
+  "degrees        training"
+  "internships    internships"
+  "jobs           jobs"
+  "communications communications"
+  "skills         skills"
+  "footer         footer";
+grid-template-columns: 1fr 1fr;
 ```
 
 ### Sentinel header
