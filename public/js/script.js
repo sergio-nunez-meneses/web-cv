@@ -82,7 +82,24 @@ function initStickyHeader() {
   });
 }
 
+function initArtworkToggle() {
+  const toggle = document.querySelector('.cv__artwork-toggle');
+  if (!toggle) return;
+
+  const artwork = document.querySelector('.cv__artwork');
+  if (!artwork) return;
+
+  toggle.addEventListener('click', function () {
+    artwork.classList.toggle('hide');
+
+    toggle.textContent = artwork.classList.contains('hide')
+      ? 'Voir mes créations artistiques'
+      : 'Masquer mes créations artistiques';
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   initYear();
   initStickyHeader();
+  initArtworkToggle();
 });
