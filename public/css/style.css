@@ -136,6 +136,10 @@ address {
   background-size:     100% 5px;
 }
 
+.hide {
+  display: none;
+}
+
 /* === 5. Conteneur page CV =================================== */
 .cv {
   background-image:
@@ -156,6 +160,7 @@ address {
     "internships    internships"
     "jobs           jobs"
     "communications communications"
+    "artwork        artwork"
     "skills         skills"
     "footer         footer";
   column-gap:            var(--sp-xl);
@@ -168,6 +173,7 @@ address {
 .cv__internships    { grid-area: internships; }
 .cv__jobs           { grid-area: jobs; }
 .cv__communications { grid-area: communications; }
+.cv__artwork        { grid-area: artwork; }
 .cv__skills         { grid-area: skills; }
 .cv__footer         { grid-area: footer; }
 
@@ -292,12 +298,13 @@ address {
 
 .cv__header--sticky .cv__profession {
   grid-area:     profession;
-  margin-bottom: 0;
+  margin-bottom: var(--sp-sm);
 }
 
 .cv__header--sticky .cv__contact {
   grid-area:       contact;
   justify-content: flex-end;
+  margin-top:      var(--sp-md);
 }
 
 /* === 7. Parcours universitaire ============================== */
@@ -333,7 +340,7 @@ address {
   gap:            var(--sp-md);
 }
 
-/* === 10. Distinctions ======================================= */
+/* === 10. Communications ===================================== */
 .cv__communications {
   display:        flex;
   flex-direction: column;
@@ -404,7 +411,20 @@ address {
   font-style: normal;
 }
 
-/* === 12. Compétences ======================================= */
+/* === 12. Création artistique =============================== */
+.artwork__title {
+  font-style: italic;
+}
+
+.artwork__item {
+  margin-bottom: var(--sp-sm);
+}
+
+.artwork__item .item__highlight {
+  background-size: 100% 4px;
+}
+
+/* === 13. Compétences ======================================= */
 .cv__skills {
   display:        flex;
   flex-direction: column;
@@ -453,21 +473,26 @@ address {
   margin-right: -0.1rem;
 }
 
-/* === 13. Pied de page ======================================= */
+/* === 14. Pied de page ======================================= */
 .cv__footer {
   display:         flex;
-  justify-content: end;
+  justify-content: space-between;
   margin-top:      var(--sp-lg);
 }
 
+.cv__artwork-toggle {
+  font-family: var(--font-footer);
+  cursor:      pointer;
+}
+
 .cv__signature {
-  font-family: var(--font-signature);
+  font-family: var(--font-footer);
   font-size:   var(--fs-section);
   font-weight: var(--fw-normal);
   color:       var(--color-text-meta);
 }
 
-/* === 14. Impression ========================================= */
+/* === 15. Impression ========================================= */
 @media print {
   body {
     background: white;
@@ -493,7 +518,7 @@ address {
   }
 }
 
-/* === 15. Design responsive ================================== */
+/* === 16. Design responsive ================================== */
 @media (min-width: 768px) and (max-width: 820px) {
   .training__list .item__subtitle {
     text-align: unset;
@@ -515,6 +540,7 @@ address {
       "internships    internships"
       "jobs           jobs"
       "communications communications"
+      "artwork        artwork"
       "skills         skills"
       "footer         footer";
     /*
@@ -538,6 +564,21 @@ address {
     flex-direction: column;
     gap:            var(--sp-md);
   }
+
+  .cv__footer {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 700px) {
+  .cv__footer {
+    flex-direction: column;
+  }
+
+  .cv__signature {
+    align-self: end;
+    margin-top: var(--sp-xl);
+  }
 }
 
 @media (max-width: 600px) {
@@ -550,6 +591,7 @@ address {
       "internships"
       "jobs"
       "communications"
+      "artwork"
       "skills"
       "footer";
     padding: 1rem;
@@ -591,6 +633,7 @@ address {
       "internships    internships"
       "jobs           jobs"
       "communications communications"
+      "artwork        artwork"
       "skills         skills"
       "footer         footer";
   }
@@ -642,6 +685,10 @@ address {
   .item__tasks li,
   .communications__item {
     text-align: left;
+  }
+
+  .cv__artwork-toggle {
+    text-align: justify;
   }
 }
 
