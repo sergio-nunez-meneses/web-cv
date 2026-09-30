@@ -4,7 +4,7 @@ CV personnel en HTML/CSS statique, déployé sur GitHub Pages.
 
 - **URL déployée :** https://sergio-nunez-meneses.github.io/web-cv
 - **Dépôt :** https://github.com/sergio-nunez-meneses/web-cv (public)
-- **Version courante :** v0.1.0 (tag sur `main`), v0.1.0rc1 (tag sur `release`)
+- **Version courante :** v0.1.2 (tag sur `main`), v0.1.2rc1 (tag sur `release`)
 
 ---
 
@@ -16,7 +16,7 @@ public/
   css/
     style.css           — feuille principale (imports + tous les styles)
     fonts.css           — @font-face Bad Script (400) + Lato (100, 300, 400, 700, 900)
-    vars.css            — variables typo (dont --font-signature), espacement, page, photo
+    vars.css            — variables typo (dont --font-footer), espacement, page, photo
     colors.css          — palette active (noir/blanc chaud)
   fonts/                — fichiers .woff2 auto-hébergés (Lato + Bad Script)
     bad-script-400.woff2
@@ -24,7 +24,7 @@ public/
     profile.jpg         — photo de profil (versionnée)
     photo.png           — ancienne photo (non versionnée, .gitignore)
   js/
-    script.js           — initYear() + initStickyHeader()
+    script.js           — initYear() + initStickyHeader() + initArtworkToggle()
   favicon.svg           — favicon <♪> (fond noir, texte blanc)
 ```
 
@@ -46,10 +46,11 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 9.  Stages (.cv__internships)
 10. Résidences et communications (.cv__communications)
 11. Publications — auteurs (.publications__authors, au sein de .cv__communications)
-12. Compétences (.cv__skills)
-13. Pied de page (.cv__footer, .cv__signature)
-14. Impression (@media print)
-15. Design responsive (breakpoints : 376, 420, 480, 576, 600, 768, 820px)
+12. Création artistique (.cv__artwork, .artwork__*)
+13. Compétences (.cv__skills)
+14. Pied de page (.cv__footer, .cv__artwork-toggle, .cv__signature)
+15. Impression (@media print)
+16. Design responsive (breakpoints : 376, 420, 480, 576, 600, 700, 768, 820px)
 ```
 
 ### Classes d'effet visuel
@@ -57,6 +58,7 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 - `.item__highlight` — surligneur jaune (`#faff00`) en dégradé vers le bas, largeur = texte
 - `.link__highlight` — surligneur violet (`rgba(148, 0, 255, 0.5)`) pour les liens externes
 - Ces deux classes utilisent `background-image: linear-gradient(...)` + `width: fit-content`
+- `.hide` — utilitaire `display: none` (section 4), utilisé par le toggle de la création artistique
 
 ### Grille CSS
 
@@ -67,6 +69,7 @@ grid-template-areas:
   "internships    internships"
   "jobs           jobs"
   "communications communications"
+  "artwork        artwork"
   "skills         skills"
   "footer         footer";
 grid-template-columns: 1fr 1fr;
@@ -75,6 +78,10 @@ grid-template-columns: 1fr 1fr;
 ### Sentinel header
 
 `.cv__header-sentinel` occupe `grid-area: header` avec `align-self: end; height: 0`. Il reste dans le flux lorsque `.cv__header` passe en `position: fixed`, ce qui permet à `sentinel.offsetTop` de servir de seuil de scroll stable sans recalcul.
+
+### Création artistique (toggle)
+
+`.cv__artwork` est masquée par défaut via la classe `.hide`. Le bouton `.cv__artwork-toggle` du footer (police `--font-footer`) bascule `.hide` et alterne son libellé entre « Voir mes créations artistiques » et « Masquer mes créations artistiques » (`initArtworkToggle()` dans `script.js`). Sous 700px, le footer passe en colonne et la signature s'aligne à droite.
 
 ---
 
@@ -115,13 +122,13 @@ Description :
 
 - Ne pas consulter les liens ni leurs contenus (données personnelles)
 - `public/img/` : seul `profile.jpg` est versionné (`public/img/*` + `!public/img/profile.jpg` dans `.gitignore`)
-- `@media print` est la section 14 de `style.css` ; la section 15 (Design responsive) la suit — à réorganiser si nécessaire
+- `@media print` est la section 15 de `style.css` ; la section 16 (Design responsive) la suit — à réorganiser si nécessaire
 
 ---
 
 ## Tâches en suspens (non bloquantes)
 
-### Branche `refacto/print` (créée, vide — travaux à venir)
+### Impression
 
 Problèmes d'impression identifiés mais non résolus :
 
