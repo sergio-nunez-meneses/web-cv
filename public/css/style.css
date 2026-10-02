@@ -477,10 +477,19 @@ address {
 .cv__footer {
   display:         flex;
   justify-content: space-between;
+  align-items:     flex-start;
   margin-top:      var(--sp-lg);
 }
 
-.cv__artwork-toggle {
+.cv__footer-actions {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--sp-sm);
+}
+
+.cv__artwork-toggle,
+.cv__pdf-download {
+  margin-top:  var(--sp-sm);
   font-family: var(--font-footer);
   cursor:      pointer;
 }
@@ -492,33 +501,7 @@ address {
   color:       var(--color-text-meta);
 }
 
-/* === 15. Impression ========================================= */
-@media print {
-  body {
-    background: white;
-    padding:    0;
-  }
-
-  .cv {
-    width:      100%;
-    min-height: auto;
-    padding:    0;
-    gap:        8mm;
-  }
-
-  .cv__contact-item::after {
-    content:     attr(title);
-    margin-left: var(--sp-xs);
-    font-size:   var(--fs-small);
-  }
-
-  @page {
-    size:   A4;
-    margin: 14mm 18mm;
-  }
-}
-
-/* === 16. Design responsive ================================== */
+/* === 15. Design responsive ================================== */
 @media (min-width: 768px) and (max-width: 820px) {
   .training__list .item__subtitle {
     text-align: unset;
