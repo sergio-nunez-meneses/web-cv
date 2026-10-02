@@ -4,7 +4,6 @@ CV personnel en HTML/CSS statique, déployé sur GitHub Pages.
 
 - **URL déployée :** https://sergio-nunez-meneses.github.io/web-cv
 - **Dépôt :** https://github.com/sergio-nunez-meneses/web-cv (public)
-- **Version courante :** v0.1.2 (tag sur `main`), v0.1.2rc1 (tag sur `release`)
 
 ---
 
@@ -25,6 +24,8 @@ public/
     photo.png           — ancienne photo (non versionnée, .gitignore)
   js/
     script.js           — initYear() + initStickyHeader() + initArtworkToggle()
+  pdf/
+    cv-sergio-nunez-meneses.pdf — export PDF page unique (généré par build-pdf, versionné)
   favicon.svg           — favicon <♪> (fond noir, texte blanc)
 ```
 
@@ -48,9 +49,8 @@ Les sections sont numérotées et délimitées par des commentaires alignés à 
 11. Publications — auteurs (.publications__authors, au sein de .cv__communications)
 12. Création artistique (.cv__artwork, .artwork__*)
 13. Compétences (.cv__skills)
-14. Pied de page (.cv__footer, .cv__artwork-toggle, .cv__signature)
-15. Impression (@media print)
-16. Design responsive (breakpoints : 376, 420, 480, 576, 600, 700, 768, 820px)
+14. Pied de page (.cv__footer, .cv__footer-actions, .cv__artwork-toggle, .cv__pdf-download, .cv__signature)
+15. Design responsive (breakpoints : 376, 420, 480, 576, 600, 700, 768, 820px)
 ```
 
 ### Classes d'effet visuel
@@ -83,6 +83,19 @@ grid-template-columns: 1fr 1fr;
 
 `.cv__artwork` est masquée par défaut via la classe `.hide`. Le bouton `.cv__artwork-toggle` du footer (police `--font-footer`) bascule `.hide` et alterne son libellé entre « Voir mes créations artistiques » et « Masquer mes créations artistiques » (`initArtworkToggle()` dans `script.js`). Sous 700px, le footer passe en colonne et la signature s'aligne à droite.
 
+### Export PDF
+
+Le lien `.cv__pdf-download` (sous le toggle, dans `.cv__footer-actions`) télécharge `public/pdf/cv-sergio-nunez-meneses.pdf`, généré en local et versionné (pas de build ni de CI).
+
+Le générateur est un outil externe au projet :
+- dépôt : https://github.com/sergio-nunez-meneses/build-pdf (`~/WebstormProjects/build-pdf`), Puppeteer (`puppeteer-core` + Chrome installé)
+- `.env` de l'outil : `WEB_CV_ROOT` = racine de ce projet
+- commande : `build-pdf` (lien `/usr/local/bin/build-pdf` → lanceur `/opt/build-pdf/build-pdf` → `npm run build:pdf`)
+
+Rendu : mise en page **web** (media `screen`) sur une page unique de 210mm de large, hauteur mesurée sur `.cv` ; création artistique affichée, actions du footer masquées (`visibility: hidden`, la signature reste à droite). PDF vectoriel (texte sélectionnable, liens cliquables).
+
+Pas de `@media print` : l'impression passe par le PDF ; Ctrl+P imprime la page web telle quelle.
+
 ---
 
 ## Workflow Git
@@ -94,6 +107,7 @@ main ← release ← feature/refacto branches
 - Toujours proposer le **message de commit** avant de commiter
 - Toujours proposer le **titre + description de PR** avant d'ouvrir la PR
 - Ne jamais commiter ni ouvrir une PR sans validation de Sergio
+- Avant une PR vers `release` : si `index.html`, le CSS ou `profile.jpg` ont changé, relancer `build-pdf` et commiter le PDF
 
 ### Format des commits
 
@@ -122,25 +136,3 @@ Description :
 
 - Ne pas consulter les liens ni leurs contenus (données personnelles)
 - `public/img/` : seul `profile.jpg` est versionné (`public/img/*` + `!public/img/profile.jpg` dans `.gitignore`)
-- `@media print` est la section 15 de `style.css` ; la section 16 (Design responsive) la suit — à réorganiser si nécessaire
-
----
-
-## Tâches en suspens (non bloquantes)
-
-### Impression
-
-Problèmes d'impression identifiés mais non résolus :
-
-| Problème | Navigateur | État |
-|---|---|---|
-| Fond noir en impression | Firefox 54 | Fix partiel : `background-color: #ffffff` + opacité grille 0.4 dans `@media print` |
-| Quadrillé : traits verticaux seulement | Safari 26.5 | Non résolu |
-| `link__highlight` trop fin (5px) en impression | Tous | Override `9px` prévu dans `@media print` |
-
-Note : `print-color-adjust: exact` n'est pas supporté avant Firefox 97 → couleurs semi-transparentes composées sur noir en FF54.
-
-### Futures améliorations
-
-1. **Impression / export PDF** — affiner `@media print` ou ajouter un bouton d'export JS (`window.print()`)
-2. **`@page` print** — tester `size: A4; margin: 0` avec `padding` sur `.cv` pour tenir sur 1 page
