@@ -88,11 +88,17 @@ grid-template-columns: 1fr 1fr;
 Le lien `.cv__pdf-download` (sous le toggle, dans `.cv__footer-actions`) télécharge `public/pdf/cv-sergio-nunez-meneses.pdf`, généré en local et versionné (pas de build ni de CI).
 
 Le générateur est un outil externe au projet :
-- dépôt : https://github.com/sergio-nunez-meneses/build-pdf (`~/WebstormProjects/build-pdf`), Puppeteer (`puppeteer-core` + Chrome installé)
-- `.env` de l'outil : `WEB_CV_ROOT` = racine de ce projet
+- dépôt : https://github.com/sergio-nunez-meneses/build-pdf (`~/WebstormProjects/build-pdf`), Puppeteer (`puppeteer-core` + Chrome installé) ; convertit n'importe quel document HTML
+- `.env` de l'outil pour ce projet :
+  ```
+  INPUT_FILE=/Users/sergionunezmeneses/PhpstormProjects/web-cv/index.html
+  OUTPUT_FILE=public/pdf/cv-sergio-nunez-meneses.pdf
+  CONTENT_SELECTOR=.cv
+  EXTRA_CSS=.cv__artwork.hide { display: block; } .cv__footer-actions { visibility: hidden; }
+  ```
 - commande : `build-pdf` (lien `/usr/local/bin/build-pdf` → lanceur `/opt/build-pdf/build-pdf` → `npm run build:pdf`)
 
-Rendu : mise en page **web** (media `screen`) sur une page unique de 210mm de large, hauteur mesurée sur `.cv` ; création artistique affichée, actions du footer masquées (`visibility: hidden`, la signature reste à droite). PDF vectoriel (texte sélectionnable, liens cliquables).
+Rendu : mise en page **web** (media `screen`) sur une page unique de 210mm de large, hauteur mesurée sur le bas de `.cv` ; via `EXTRA_CSS`, création artistique affichée et actions du footer masquées (`visibility: hidden`, la signature reste à droite). PDF vectoriel (texte sélectionnable, liens cliquables).
 
 Pas de `@media print` : l'impression passe par le PDF ; Ctrl+P imprime la page web telle quelle.
 
@@ -127,7 +133,7 @@ Description :
 - bullet passif 2
 ...
 
-🤖 Generated with [Claude Code](https://claude.ai/code)
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
 ```
 
 ---

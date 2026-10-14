@@ -4,3 +4,6 @@
 # Fichiers média personnels (photo, etc.) non versionnés
 public/img/*
 !public/img/profile.jpg
+
+# Fichiers système macOS
+.DS_Store
