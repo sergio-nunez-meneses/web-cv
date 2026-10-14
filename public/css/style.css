@@ -61,8 +61,8 @@ address {
 
 /* === 4. Styles partagés d'éléments ========================== */
 .item__title {
-  font-weight:   var(--fw-bold);
-  font-size:     var(--fs-body);
+  font-weight: var(--fw-bold);
+  font-size:   var(--fs-body);
 }
 
 .item__meta {
@@ -79,10 +79,10 @@ address {
 }
 
 .item__description {
-  font-style:  italic;
-  font-size:   var(--fs-small);
-  color:       var(--color-text-secondary);
-  margin-top:  var(--sp-xs);
+  font-style: italic;
+  font-size:  var(--fs-small);
+  color:      var(--color-text-secondary);
+  margin-top: var(--sp-xs);
 }
 
 .item__tasks {
@@ -133,7 +133,7 @@ address {
 .jobs__item .item__highlight,
 .communications__item .item__highlight,
 .cv__signature.item__highlight {
-  background-size:     100% 5px;
+  background-size: 100% 5px;
 }
 
 .hide {
@@ -265,9 +265,9 @@ address {
 
 /* En-tête sticky -------------------------------------------- */
 .cv__header--sticky {
-  position: fixed;
-  top:      0;
-  z-index:  100;
+  position:         fixed;
+  top:              0;
+  z-index:          100;
   background-color: rgb(255, 255, 255);
   padding:          var(--sp-sm) calc(var(--page-pad-h) / 2);
   box-shadow:       0 2px 6px rgba(0, 0, 0, 0.08);
